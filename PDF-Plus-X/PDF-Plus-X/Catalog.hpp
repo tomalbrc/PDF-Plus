@@ -14,29 +14,33 @@
 #include "Pages.hpp"
 #include "Page.hpp"
 
-class Catalog : public Object {
-public:
-	Catalog(const Document *parent) :
-		Object{parent, "Catalog"}
-	{
-		_pages = std::make_shared<Pages>(parent);
-		(*this)["Pages"] = Object::Ref(_pages.get());
-	}
-	
-	const std::shared_ptr<Pages>& pages()
-	{
-		return _pages;
-	}
-	
-	friend std::ostream& operator<<(std::ostream& out, const Catalog& obj)
-	{
-		out << (Object)obj;
-		out << *obj._pages;
-		return out;
-	}
-	
-private:
-	std::shared_ptr<Pages> _pages;
-};
+namespace PDF_Plus {
+	/**
+	 
+	 */
+	class Catalog : public Object {
+	public:
+		/**
+		 
+		 */
+		Catalog(const Document* parent) :
+			Object{parent, "Catalog"}
+		{
+			_pages = std::make_shared<Pages>(parent);
+			(*this)["Pages"] = Object::Ref(_pages.get());
+		}
+		
+		/**
+		 
+		 */
+		const std::shared_ptr<Pages>& pages()
+		{
+			return _pages;
+		}
+		
+	private:
+		std::shared_ptr<Pages> _pages;
+	};
+}
 
 #endif /* Catalog_hpp */

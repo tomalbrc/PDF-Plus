@@ -21,67 +21,74 @@
 	return v;\
 }
 
-class Document;
+namespace PDF_Plus {
+	class Document;
 
-class Object : std::enable_shared_from_this<Object> {
-public:
-	using Type = std::string;
-	using Identifier = uint64_t;
-	
-	Object(const Document* parent, const Type& type);
-	
-	std::string& operator[](std::string key)
-	{
-		return _dict[key];
-	}
-	
-	friend std::ostream& operator<<(std::ostream& out, const Object& obj)
-	{
-		obj.writeBegin(out);
-		out << obj._dict;
-		obj.writeEnd(out);
+	class Object {
+	public:
+		using Type = std::string;
+		using Identifier = uint64_t;
 		
-		return out;
-	}
-	
-	std::size_t size() const
-	{
-		std::stringstream s;
-		s << (*this);
-		return s.str().size();
-	}
-	
-	void setIdentifier(const Identifier& id)
-	{
-		_id = id;
-	}
-	
-	const Identifier& identifier() const
-	{
-		return _id;
-	}
-	
-	static std::string Ref(Object *o){
-		return std::to_string(o->identifier()) + " 0 R";
-	}
-	
-protected:
-	const std::string NL = "\n";
-	Identifier _id = 0;
-	Type _type;
-	Dict<std::string> _dict;
-	
-	void writeBegin(std::ostream& out) const
-	{
-		out << _id << " 0 obj" << NL;
-		out << "<< /Type /" << _type << NL;
-	}
-	void writeEnd(std::ostream& out) const
-	{
-		out << ">>" << NL;
-		out << "endobj" << NL;
-	}
-	
-};
+		/**
+		 
+		 */
+		Object(const Document* parent, const Type& type = {});
+		
+		/**
+		 
+		 */
+		virtual ~Object();
+		
+		/**
+		 
+		 */
+		std::string& operator[](std::string key);
+		
+		/**
+		 
+		 */
+		virtual void write(std::ostream& out) const;
+		
+		/**
+		 
+		 */
+		std::size_t size() const;
+		
+		/**
+		 
+		 */
+		static std::string Ref(Object *o);
+		
+	protected:
+		const char NL = '\n';
+		
+		Identifier _id = 0;
+		Type _type;
+		Dict<std::string> _dict;
+		const Document* _parent = nullptr; // FIXME: Const-correct..?
+		
+		/**
+		 Write object begin, '1 0 obj <<'
+		 */
+		void writeBegin(std::ostream& out) const;
+		
+		/**
+		 Write object begin, '>> endobj'
+		 */
+		void writeEnd(std::ostream& out) const;
+		
+		
+		friend class Document;
+		/**
+		 * Change Object id, only call this from Document
+		 */
+		void setIdentifier(const Identifier& id);
+		
+		/**
+		 * Current Object id inside the document
+		 */
+		const Identifier& identifier() const;
+	};
+}
 
 #endif /* XObject_hpp */
