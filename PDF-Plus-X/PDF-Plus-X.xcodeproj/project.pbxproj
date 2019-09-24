@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A5AE59C23380C8F00EACC93 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE59B23380C8F00EACC93 /* main.cpp */; };
+		9A5AE5B823398BE600EACC93 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5B723398BE600EACC93 /* Object.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,13 @@
 /* Begin PBXFileReference section */
 		9A5AE59823380C8F00EACC93 /* PDF-Plus-X */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PDF-Plus-X"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5AE59B23380C8F00EACC93 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9A5AE5A323380DF200EACC93 /* Dict.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Dict.hpp; sourceTree = "<group>"; };
+		9A5AE5A62338102400EACC93 /* Document.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Document.hpp; sourceTree = "<group>"; };
+		9A5AE5A92338271300EACC93 /* Page.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Page.hpp; sourceTree = "<group>"; };
+		9A5AE5AF233829B800EACC93 /* Catalog.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Catalog.hpp; sourceTree = "<group>"; };
+		9A5AE5B22339520900EACC93 /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
+		9A5AE5B523395D5500EACC93 /* Pages.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pages.hpp; sourceTree = "<group>"; };
+		9A5AE5B723398BE600EACC93 /* Object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,13 @@
 			isa = PBXGroup;
 			children = (
 				9A5AE59B23380C8F00EACC93 /* main.cpp */,
+				9A5AE5A323380DF200EACC93 /* Dict.hpp */,
+				9A5AE5B22339520900EACC93 /* Object.hpp */,
+				9A5AE5B723398BE600EACC93 /* Object.cpp */,
+				9A5AE5A62338102400EACC93 /* Document.hpp */,
+				9A5AE5AF233829B800EACC93 /* Catalog.hpp */,
+				9A5AE5A92338271300EACC93 /* Page.hpp */,
+				9A5AE5B523395D5500EACC93 /* Pages.hpp */,
 			);
 			path = "PDF-Plus-X";
 			sourceTree = "<group>";
@@ -119,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A5AE5B823398BE600EACC93 /* Object.cpp in Sources */,
 				9A5AE59C23380C8F00EACC93 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +254,7 @@
 		9A5AE5A023380C8F00EACC93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -246,6 +263,7 @@
 		9A5AE5A123380C8F00EACC93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
