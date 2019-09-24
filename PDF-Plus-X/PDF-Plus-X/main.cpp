@@ -28,7 +28,7 @@ int main(int argc, const char * argv[]) {
 
 	std::ofstream ofs;
 	ofs.open("/tmp/MyRanda.pdf");
-	ofs << doc;
+	ofs << *doc;
 	
 	return 0;
 }

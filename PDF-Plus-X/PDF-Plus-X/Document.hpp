@@ -71,6 +71,7 @@ private:
 	
 	void writeXRef(std::ostream& out) const
 	{
+		int headerLen = 9;
 		out << "xref" << '\n';
 		out << "0 " << xrefList.size()+1 << '\n';
 		out << "0000000000 " << std::pow(2,16)-1 << " f" << '\n';
@@ -81,7 +82,7 @@ private:
 			if (auto obj = o.lock())
 			{
 				off += obj->size();
-				out << std::setw(10) << std::setfill('0') << off << " 00000 n" << '\n';
+				out << std::setw(10) << std::setfill('0') << off+headerLen << " 00000 n" << '\n';
 			}
 			else
 			{
@@ -89,9 +90,9 @@ private:
 			}
 		}
 
-		out << "trailer <</Size " << xrefList.size()+1 << " /Root 1 0 R>>" << '\n';
+		out << "trailer << /Size " << xrefList.size()+1 << " /Root 1 0 R >>" << '\n';
 		out << "startxref" << '\n';
-		out << "9" << '\n';
+		out << headerLen << '\n'; // Directly After Header
 	}
 };
 

@@ -16,7 +16,7 @@ class Page : public Object {
 public:
 	Page(const Document *parent) : Object{parent, "Page"}
 	{
-		
+		(*this)["Resources"] = "<< >>";
 	}
 	
 	void drawLine()

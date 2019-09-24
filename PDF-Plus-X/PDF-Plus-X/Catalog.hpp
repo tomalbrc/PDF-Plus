@@ -20,6 +20,7 @@ public:
 		Object{parent, "Catalog"}
 	{
 		_pages = std::make_shared<Pages>(parent);
+		(*this)["Pages"] = Object::Ref(_pages.get());
 	}
 	
 	const std::shared_ptr<Pages>& pages()

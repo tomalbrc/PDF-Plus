@@ -61,12 +61,9 @@ public:
 		return _id;
 	}
 	
-	struct Ref {
-		std::weak_ptr<Object> object;
-		std::string operator()(){
-			return "";
-		}
-	};
+	static std::string Ref(Object *o){
+		return std::to_string(o->identifier()) + " 0 R";
+	}
 	
 protected:
 	const std::string NL = "\n";

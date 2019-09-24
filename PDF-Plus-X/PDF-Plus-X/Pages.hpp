@@ -17,7 +17,7 @@ class Pages : public Object {
 public:
 	Pages(const Document *parent) : Object{parent, "Pages"}
 	{
-		
+		(*this)["MediaBox"] = "[0 0 500 800]";
 	}
 	
 	friend std::ostream& operator<<(std::ostream& out, const Pages& obj)
@@ -30,7 +30,18 @@ public:
 	
 	void add(const std::shared_ptr<Page>& page)
 	{
+		(*page)["Parent"] = Object::Ref(this);
 		_pageList.emplace_back(page);
+		
+		(*this)["Count"] = std::to_string(_pageList.size());
+		
+		// TODO: Add ALL kids!!
+		std::string kids = "[";
+		for (auto& p: _pageList)
+			kids += Object::Ref(p.get()) + " ";
+		
+		kids += "]";
+		(*this)["Kids"] = kids;
 	}
 	
 private:
