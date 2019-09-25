@@ -3,8 +3,21 @@
 # PDF+ / PDF-Plus
 
 ### pi-di-ɛf+
-- The art of writing PDF files using c++
+> Creating and writing PDF files using c++
 ##
+
+#### TODO:
+* Annotations for Pages
+* Better `obj` referencing
+* Easier Arrays
+* Templated `Object` (`obj` can be an array or dict etc..)
+* 3D Support
+* Image support
+* Metadata support
+* Stronger types (much is stringly typed a.t.m., see `PDF_Plus::Object::Ref` for example)
+* Better stream handling
+* Implement stream encoding/compression
+
 *Example usage:*
 ```
 int main(int argc, const char * argv[])
@@ -42,10 +55,9 @@ int main(int argc, const char * argv[])
 #
 
 Resources:
-[PDF Reference](https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/pdf_reference_archives/PDFReference.pdf)
-[Nice Diagrams related to the PDF structure](https://github.com/feliam/miniPDF/blob/master/README.md)
-[Handmade PDF](https://blog.idrsolutions.com/2010/10/make-your-own-pdf-file-part-4-hello-world-pdf/)
-
-
+[PDF Reference](https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/pdf_reference_archives/PDFReference.pdf)  
+[Lightweight python implementation used for reference & Diagrams related to the PDF structure](https://github.com/feliam/miniPDF/blob/master/README.md)  
+[Handmade PDF (by idrsolutions)](https://blog.idrsolutions.com/2010/10/make-your-own-pdf-file-part-4-hello-world-pdf/)  
+[Adobe Supplement to ISO 32000](https://www.adobe.com/content/dam/acom/en/devnet/acrobat/pdfs/adobe_supplement_iso32000.pdf)  
 [CMAKE examples](https://cmake.org/examples/)
 
