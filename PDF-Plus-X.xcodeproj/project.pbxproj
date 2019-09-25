@@ -10,6 +10,8 @@
 		9A5AE59C23380C8F00EACC93 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE59B23380C8F00EACC93 /* main.cpp */; };
 		9A5AE5B823398BE600EACC93 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5B723398BE600EACC93 /* Object.cpp */; };
 		9A5AE5C0233A95B100EACC93 /* Document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5BF233A95B100EACC93 /* Document.cpp */; };
+		9A5AE5C5233C1DA900EACC93 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */; };
+		9A5AE5C6233C1DA900EACC93 /* libz.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,6 +23,17 @@
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		9A5AE5C7233C1DA900EACC93 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9A5AE5C6233C1DA900EACC93 /* libz.1.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -37,6 +50,7 @@
 		9A5AE5BA2339ACD300EACC93 /* Stream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Stream.hpp; sourceTree = "<group>"; };
 		9A5AE5BC233A8FC000EACC93 /* Font.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
 		9A5AE5BF233A95B100EACC93 /* Document.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Document.cpp; sourceTree = "<group>"; };
+		9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A5AE5C5233C1DA900EACC93 /* libz.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +70,7 @@
 			children = (
 				9A5AE59A23380C8F00EACC93 /* PDF-Plus-X */,
 				9A5AE59923380C8F00EACC93 /* Products */,
+				9A5AE5C1233C1D5E00EACC93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +100,14 @@
 			path = "PDF-Plus-X";
 			sourceTree = "<group>";
 		};
+		9A5AE5C1233C1D5E00EACC93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -94,6 +118,7 @@
 				9A5AE59423380C8F00EACC93 /* Sources */,
 				9A5AE59523380C8F00EACC93 /* Frameworks */,
 				9A5AE59623380C8F00EACC93 /* CopyFiles */,
+				9A5AE5C7233C1DA900EACC93 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -264,6 +289,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -273,6 +299,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

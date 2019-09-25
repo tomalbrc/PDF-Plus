@@ -48,7 +48,8 @@ namespace PDF_Plus {
 	{
 		std::stringstream out;
 		out << "%PDF-" << _docVersion << '\n';
-		//out << "%" << (char)0xE7 << (char)0xF3 << (char)0xCF << (char)0xD3 << '\n';
+		// Signal to readers that this file contains binary data
+		out << "%" << (char)0xE7 << (char)0xF3 << (char)0xCF << (char)0xD3 << '\n';
 		return out.str();
 	}
 
