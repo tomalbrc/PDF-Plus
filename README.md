@@ -4,7 +4,7 @@
 
 ### pi-di-ɛf+
 > Creating and writing PDF files using c++
-##
+#
 
 ### Motivation
 
@@ -15,11 +15,15 @@ Important is that at least Adobe's Acrobat Reader can read a generated PDF file.
   
 Feel free to contribute :)
 
+#
+
 ### Compile
 
 You'll need a compiler that supports C++17 (C++1z)
 `std::filesystem` is not being used here (yet)
 Tested with Apple Clang 11
+
+#
 
 ### TODO
 * Annotations for Pages
@@ -32,6 +36,8 @@ Tested with Apple Clang 11
 * Stronger types (much is stringly typed a.t.m., see `PDF_Plus::Object::Ref` for example)
 * Better stream handling
 * Implement stream encoding/compression
+
+#
 
 ### Usage
 *Example usage:*
