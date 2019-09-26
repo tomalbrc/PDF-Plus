@@ -27,7 +27,6 @@ namespace PDF_Plus {
 	class Object {
 	public:
 		using Type = std::string;
-		using Identifier = uint64_t;
 		
 		/**
 		 
@@ -62,7 +61,7 @@ namespace PDF_Plus {
 	protected:
 		const char NL = '\n';
 		
-		Identifier _id = 0;
+		uint64_t _number = 0;
 		Type _type;
 		Dict<std::string> _dict;
 		const Document* _parent = nullptr; // FIXME: Const-correct..?
@@ -78,16 +77,17 @@ namespace PDF_Plus {
 		void writeEnd(std::ostream& out) const;
 		
 		
+		
 		friend class Document;
 		/**
 		 * Change Object id, only call this from Document
 		 */
-		void setIdentifier(const Identifier& id);
+		void objectNumber(const uint64_t& id);
 		
 		/**
 		 * Current Object id inside the document
 		 */
-		const Identifier& identifier() const;
+		const uint64_t& objectNumber() const;
 	};
 }
 

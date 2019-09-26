@@ -13,7 +13,9 @@ namespace PDF_Plus {
 
 	Object::Object(const Document* parent, const Type& type)
 	{
-		_type = type;
+		if (!type.empty())
+			_dict[Key::TypeKey] = std::string{"/"} + type;
+		
 		_parent = parent;
 		_parent->addObject(this);
 	}
@@ -30,9 +32,10 @@ namespace PDF_Plus {
 
 	void Object::write(std::ostream& out) const
 	{
-		writeBegin(out);
+		out << _number << " 0 obj";
 		_dict.write(out);
 		writeEnd(out);
+		out << "endobj" << NL;
 	}
 
 	std::size_t Object::size() const
@@ -43,35 +46,33 @@ namespace PDF_Plus {
 	}
 
 	std::string Object::Ref(Object *o){
-		return std::to_string(o->identifier()) + " 0 R";
+		return std::to_string(o->objectNumber()) + " 0 R";
 	}
 
 	/// MARK: Private
-
-	// Write object begin, '1 0 obj <<'
+	
+	/// Write object begin
+	/// @codeline '1 0 obj'
 	void Object::writeBegin(std::ostream& out) const
 	{
-		out << _id << " 0 obj";
-		out << "<<";
-		if (!_type.empty())
-			// Only add Type info if the Type is set!
-			out << "/Type /" << _type << ' ';
+		// Object number -space- Object Generation
+		out << _number << " 0 obj";
 	}
 	
-	// Write object begin, '>> endobj'
+	/// Write object end,
+	/// @codeline 'endobj'
 	void Object::writeEnd(std::ostream& out) const
 	{
-		out << ">>" << NL;
 		out << "endobj" << NL;
 	}
-	
-	void Object::setIdentifier(const Identifier& id)
+
+	void Object::objectNumber(const uint64_t& num)
 	{
-		_id = id;
+		_number = num;
 	}
 	
-	const Object::Identifier& Object::identifier() const
+	const uint64_t& Object::objectNumber() const
 	{
-		return _id;
+		return _number;
 	}
 }

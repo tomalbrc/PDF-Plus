@@ -39,15 +39,15 @@ namespace PDF_Plus {
 			
 			// FIXME: This sucks
 			writeBegin(out);
-			out << "/Length " << data.size() << " /Filter " << "/FlateDecode";
-			out << ">>" << '\n'; // Dict end
+			_dict.write(out);
+			out << '\n';
 			out << "stream" << '\n'; // Stream begin
 			
 			out << reinterpret_cast<const unsigned char*>(data.data());
 			
 			out << '\n';
 			out << "endstream" << '\n'; // stream end
-			out << "endobj" << '\n'; // Object end
+			writeEnd(out);
 		}
 		
 		/**
@@ -125,6 +125,8 @@ namespace PDF_Plus {
 			std::copy(reinterpret_cast<const std::byte*>(str.data()),
 					  reinterpret_cast<const std::byte*>(str.data()+str.length()),
 					  std::back_inserter(this->streamData));
+			
+			_dict[Key::LengthKey] = std::to_string(streamData.size());
 		}
 	};
 

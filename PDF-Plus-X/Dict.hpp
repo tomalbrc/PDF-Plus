@@ -50,10 +50,10 @@ namespace PDF_Plus {
 				res += "/" + kvPair.first + " " + kvPair.second + " ";
 			}
 			
-			if (!res.empty())
-				res.pop_back(); // remove last char
+			if (!res.empty() && res.back() == ' ')
+				res.pop_back(); // remove last char if space
 			
-			out << res;
+			out << "<<" << res << ">>";
 		}
 		
 	private:

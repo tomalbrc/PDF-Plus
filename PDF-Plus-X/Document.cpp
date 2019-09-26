@@ -56,7 +56,7 @@ namespace PDF_Plus {
 	/// MARK: XRef
 	void Document::addObject(Object* obj) const
 	{
-		obj->setIdentifier(xrefList.size()+1);
+		obj->objectNumber(xrefList.size()+1);
 		xrefList.emplace_back(obj);
 	}
 	void Document::removeObject(Object* obj) const
