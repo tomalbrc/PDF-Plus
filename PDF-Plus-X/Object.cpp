@@ -35,7 +35,6 @@ namespace PDF_Plus {
 		out << _number << " 0 obj";
 		_dict.write(out);
 		writeEnd(out);
-		out << "endobj" << NL;
 	}
 
 	std::size_t Object::size() const
