@@ -22,6 +22,7 @@ int main(int argc, const char * argv[])
 	
 	auto page = std::make_shared<Page>(doc.get());
 	page->contents()->drawText("Page 1", 10, 10, 10);
+	page->contents()->drawText(") endstream Title..?", 100, 700, 30);
 	page->contents()->drawText("Hello, world!", 100, 300, 30);
 	page->contents()->drawRect(10, 10, 110, 110);
 	doc->addPage(page);
@@ -37,7 +38,7 @@ int main(int argc, const char * argv[])
 	doc->addPage(page3);
 	
 	std::ofstream ofs;
-	ofs.open("/tmp/MyRanda.pdf");
+	ofs.open("/tmp/pdfplus.pdf");
 	doc->write(std::cout);
 	doc->write(ofs);
 	

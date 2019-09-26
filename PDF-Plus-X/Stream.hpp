@@ -10,6 +10,7 @@
 #define Stream_hpp
 
 #include <cstdio>
+#include <regex>
 #include <zlib.h>
 #include "Object.hpp"
 
@@ -42,8 +43,8 @@ namespace PDF_Plus {
 			out << ">>" << '\n'; // Dict end
 			out << "stream" << '\n'; // Stream begin
 			
-			for (const auto& b: data)
-				out << (char)b;
+			out << reinterpret_cast<const unsigned char*>(data.data());
+			
 			out << '\n';
 			out << "endstream" << '\n'; // stream end
 			out << "endobj" << '\n'; // Object end
@@ -54,6 +55,8 @@ namespace PDF_Plus {
 		 */
 		void drawText(std::string text, int x, int y, int fontSize)
 		{
+			text = escape(text);
+			
 			std::stringstream streamData;
 			streamData << "BT";
 			streamData << " /F1 " << fontSize << " Tf";
@@ -61,10 +64,7 @@ namespace PDF_Plus {
 			streamData << " (" << text << ")Tj";
 			streamData << " ET" << '\n';
 			
-			auto str = streamData.str();
-			std::copy((std::byte*)str.data(),
-					  (std::byte*)str.data()+str.length(),
-					  std::back_inserter(this->streamData));
+			read(streamData.str());
 		}
 		
 		/**
@@ -83,10 +83,7 @@ namespace PDF_Plus {
 			// S = stroke path
 			streamData << " m " << x2 << " " << y2 << " l h S" << '\n';
 		
-			auto str = streamData.str();
-			std::copy((std::byte*)str.data(),
-					  (std::byte*)str.data()+str.length(),
-					  std::back_inserter(this->streamData));
+			read(streamData.str());
 		}
 		
 		/**
@@ -96,11 +93,7 @@ namespace PDF_Plus {
 		{
 			std::stringstream streamData;
 			streamData << x1 << " " << y1 << " " << x2 << " " << y2 << " re S" << '\n';
-			
-			auto str = streamData.str();
-			std::copy((std::byte*)str.data(),
-					  (std::byte*)str.data()+str.length(),
-					  std::back_inserter(this->streamData));
+			read(streamData.str());
 		}
 		
 	private:
@@ -112,8 +105,26 @@ namespace PDF_Plus {
 			
 			auto blen = data.size()*2;
 			auto buffer = new std::byte[blen];
-			compress((Bytef*)buffer, &blen, (Bytef*)data.data(), data.size()+1);
+			compress(reinterpret_cast<Bytef*>(buffer),
+					 &blen,
+					 reinterpret_cast<const Bytef*>(data.data()),
+					 data.size()+1);
 			return std::vector<std::byte>{buffer, buffer+blen};
+		}
+		
+		std::string& escape(std::string& text) const
+		{
+			text = std::regex_replace(text, std::regex(R"(\\)"), R"(\\)");
+			text = std::regex_replace(text, std::regex(R"(\()"), R"(\()");
+			text = std::regex_replace(text, std::regex(R"(\))"), R"(\))");
+			return text;
+		}
+		
+		void read(const std::string& str)
+		{
+			std::copy(reinterpret_cast<const std::byte*>(str.data()),
+					  reinterpret_cast<const std::byte*>(str.data()+str.length()),
+					  std::back_inserter(this->streamData));
 		}
 	};
 
