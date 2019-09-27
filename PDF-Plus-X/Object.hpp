@@ -13,13 +13,7 @@
 #include <string>
 #include <sstream>
 #include "Dict.hpp"
-
-#define CREATE_FUNC(x) static std::shared_ptr<x> create(const Document* parent) \
-{\
-	auto v = std::make_shared<x>(); \
-	parent->addObject(v);\
-	return v;\
-}
+#include "Xref.hpp"
 
 namespace PDF_Plus {
 	class Document;
@@ -46,12 +40,12 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		virtual void write(std::ostream& out) const;
+		virtual void write(std::ostream& out);
 		
 		/**
 		 
 		 */
-		std::size_t size() const;
+		virtual std::size_t size() const;
 		
 		/**
 		 
@@ -62,9 +56,11 @@ namespace PDF_Plus {
 		const char NL = '\n';
 		
 		uint64_t _number = 0;
+        uint64_t _gen = 0;
+		
 		Type _type;
 		Dict<std::string> _dict;
-		const Document* _parent = nullptr; // FIXME: Const-correct..?
+		std::weak_ptr<Xref> _xref; // FIXME: Const-correct..?
 		
 		/**
 		 Write object begin, '1 0 obj <<'
@@ -78,16 +74,26 @@ namespace PDF_Plus {
 		
 		
 		
-		friend class Document;
+		friend class Xref;
 		/**
-		 * Change Object id, only call this from Document
+		 Change Object id, only call this from Document
 		 */
 		void objectNumber(const uint64_t& id);
 		
 		/**
-		 * Current Object id inside the document
+		 Current Object id inside the document
 		 */
 		const uint64_t& objectNumber() const;
+        
+        /**
+         Object generation number
+         */
+        void generationNumber(const uint64_t& gen);
+        
+        /**
+         Object generation number
+         */
+        const uint64_t& generationNumber() const;
 	};
 }
 

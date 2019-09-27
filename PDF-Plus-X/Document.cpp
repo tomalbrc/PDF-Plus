@@ -7,14 +7,18 @@
 //
 
 #include "Document.hpp"
+#include "DocumentInfo.hpp"
 
 namespace PDF_Plus {
 	
 	Document::Document(const Version& docVersion)
 	{
+		_xref = std::make_shared<Xref>();
+
 		_docVersion = docVersion;
-		_catalog = std::make_shared<Catalog>(this);
-		
+		_catalog = std::make_unique<Catalog>(this);
+		_info = std::make_unique<DocumentInfo>(this, "Demo PDF");
+
 		_headerOffset = generateHeader().length();
 	}
 	
@@ -29,16 +33,16 @@ namespace PDF_Plus {
 	/**
 	 
 	 */
-	void Document::write(std::ostream& out) const
+	void Document::write(std::ostream& out)
 	{
 		const auto NL = '\n';
 		out << generateHeader();
 		
 		// Write every object
-		for (const auto& obj: xrefList)
+		for (const auto& obj: *_xref)
 			obj->write(out);
 		
-		writeXRef(out);
+		_xref->write(out, _headerOffset, Object::Ref(_info.get()));
 		out << "%%EOF" << NL;
 	}
 
@@ -49,39 +53,7 @@ namespace PDF_Plus {
 		std::stringstream out;
 		out << "%PDF-" << _docVersion << '\n';
 		// Signal to readers that this file contains binary data
-		out << "%" << (char)0xE7 << (char)0xF3 << (char)0xCF << (char)0xD3 << '\n';
+		out << "%" << (char)0xE2 << (char)0xE3 << (char)0xCF << (char)0xD3 << '\n';
 		return out.str();
-	}
-
-	/// MARK: XRef
-	void Document::addObject(Object* obj) const
-	{
-		obj->objectNumber(xrefList.size()+1);
-		xrefList.emplace_back(obj);
-	}
-	void Document::removeObject(Object* obj) const
-	{
-		xrefList.erase(std::remove(xrefList.begin(), xrefList.end(), obj), xrefList.end());
-	}
-	
-	void Document::writeXRef(std::ostream& out) const
-	{
-		std::stringstream ss;
-		_catalog->write(ss);
-
-		out << "xref" << '\n';
-		out << "0 " << xrefList.size()+1 << '\n';
-		out << "0000000000 " << std::pow(2,16)-1 << " f" << '\n';
-
-		std::size_t off = 0;
-		for (auto& o: xrefList)
-		{
-			out << std::setw(10) << std::setfill('0') << off+_headerOffset << " 00000 n" << '\n';
-			off += o->size();
-		}
-
-		out << "trailer <</Size " << xrefList.size()+1 << " /Root 1 0 R>>" << '\n';
-		out << "startxref" << '\n';
-		out << off + _headerOffset << '\n'; // Directly After Header
 	}
 }

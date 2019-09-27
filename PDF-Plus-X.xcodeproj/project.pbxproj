@@ -12,6 +12,7 @@
 		9A5AE5C0233A95B100EACC93 /* Document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5BF233A95B100EACC93 /* Document.cpp */; };
 		9A5AE5C5233C1DA900EACC93 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */; };
 		9A5AE5C6233C1DA900EACC93 /* libz.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		9A5AE5CC233EC49400EACC93 /* Xref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5CB233EC49400EACC93 /* Xref.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09445C0B233E214F000C537E /* DocumentInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DocumentInfo.hpp; sourceTree = "<group>"; };
 		9A5AE59823380C8F00EACC93 /* PDF-Plus-X */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PDF-Plus-X"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5AE59B23380C8F00EACC93 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9A5AE5A323380DF200EACC93 /* Dict.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Dict.hpp; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		9A5AE5BC233A8FC000EACC93 /* Font.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
 		9A5AE5BF233A95B100EACC93 /* Document.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Document.cpp; sourceTree = "<group>"; };
 		9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		9A5AE5C9233EC02300EACC93 /* Xref.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Xref.hpp; sourceTree = "<group>"; };
+		9A5AE5CB233EC49400EACC93 /* Xref.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Xref.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,9 @@
 				9A5AE5B523395D5500EACC93 /* Pages.hpp */,
 				9A5AE5BA2339ACD300EACC93 /* Stream.hpp */,
 				9A5AE5BC233A8FC000EACC93 /* Font.hpp */,
+				09445C0B233E214F000C537E /* DocumentInfo.hpp */,
+				9A5AE5C9233EC02300EACC93 /* Xref.hpp */,
+				9A5AE5CB233EC49400EACC93 /* Xref.cpp */,
 			);
 			path = "PDF-Plus-X";
 			sourceTree = "<group>";
@@ -168,6 +175,7 @@
 			files = (
 				9A5AE5C0233A95B100EACC93 /* Document.cpp in Sources */,
 				9A5AE5B823398BE600EACC93 /* Object.cpp in Sources */,
+				9A5AE5CC233EC49400EACC93 /* Xref.cpp in Sources */,
 				9A5AE59C23380C8F00EACC93 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

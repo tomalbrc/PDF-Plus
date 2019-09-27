@@ -16,6 +16,8 @@
 #include <sstream>
 #include <cmath>
 
+#include "Xref.hpp"
+#include "DocumentInfo.hpp"
 #include "Catalog.hpp"
 #include "Page.hpp"
 
@@ -42,36 +44,22 @@ namespace PDF_Plus {
 		 */
 		virtual void write(std::ostream& out) const;
 		
+		std::weak_ptr<Xref> xref() const
+		{
+			return _xref;
+		}
+		
 	private:
 		std::size_t _headerOffset = 0;
 		Version _docVersion;
-		std::shared_ptr<Catalog> _catalog;
-		
+        std::unique_ptr<Catalog> _catalog;
+		std::unique_ptr<DocumentInfo> _info;
+		std::shared_ptr<Xref> _xref;
+
 		/**
 		 Returns the PDF file header (with magic numbers)
 		 */
 		std::string generateHeader() const;
-		
-		/// MARK: Xref
-		// XRef table impl.
-		// TODO: Use weak_ptr!
-		// TODO: Own class! So that Object doesnt need to know about 'Document' but the independent class Xref..!
-		mutable std::vector<Object*> xrefList{};
-		friend class Object;
-		/**
-		 
-		 */
-		void addObject(Object* obj) const;
-		
-		/**
-		 
-		 */
-		void removeObject(Object* obj) const;
-		
-		/**
-		 
-		 */
-		void writeXRef(std::ostream& out) const;
 	};
 
 }

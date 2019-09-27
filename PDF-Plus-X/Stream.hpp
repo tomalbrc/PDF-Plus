@@ -29,24 +29,34 @@ namespace PDF_Plus {
 		{
 			(*this)["Filter"] = "/FlateDecode";
 		}
+        
+        virtual std::size_t size() const override
+        {
+            std::stringstream s;
+            auto o = *this;
+            o.write(s);
+            return s.str().length();
+        }
 		
 		/**
 		 
 		 */
-		virtual void write(std::ostream& out) const override
+		virtual void write(std::ostream& out) override
 		{
 			auto data = this->compressData(this->streamData);
-			
-			// FIXME: This sucks
+            _dict[Key::LengthKey] = std::to_string(data.size()+1);
+            
 			writeBegin(out);
-			_dict.write(out);
-			out << '\n';
-			out << "stream" << '\n'; // Stream begin
-			
-			out << reinterpret_cast<const unsigned char*>(data.data());
-			
-			out << '\n';
-			out << "endstream" << '\n'; // stream end
+			{
+				_dict.write(out);
+				out << "stream" << '\n'; // Stream begin
+				
+				for (const auto& c: data)
+					out << (const unsigned char)c;
+				
+				out << '\n';
+				out << "endstream" << '\n'; // stream end
+			}
 			writeEnd(out);
 		}
 		
@@ -104,12 +114,17 @@ namespace PDF_Plus {
 			static_assert(sizeof(Bytef) == sizeof(std::byte), "Bytef != std::byte");
 			
 			auto blen = data.size()*2;
-			auto buffer = new std::byte[blen];
+			auto buffer = new std::byte[blen]();
 			compress(reinterpret_cast<Bytef*>(buffer),
 					 &blen,
 					 reinterpret_cast<const Bytef*>(data.data()),
 					 data.size()+1);
-			return std::vector<std::byte>{buffer, buffer+blen};
+			
+			std::vector<std::byte> res{buffer, buffer+blen};
+			
+			delete[] buffer;
+			
+			return res;
 		}
 		
 		std::string& escape(std::string& text) const
@@ -126,7 +141,6 @@ namespace PDF_Plus {
 					  reinterpret_cast<const std::byte*>(str.data()+str.length()),
 					  std::back_inserter(this->streamData));
 			
-			_dict[Key::LengthKey] = std::to_string(streamData.size());
 		}
 	};
 

@@ -16,13 +16,16 @@ namespace PDF_Plus {
 		if (!type.empty())
 			_dict[Key::TypeKey] = std::string{"/"} + type;
 		
-		_parent = parent;
-		_parent->addObject(this);
+        if (parent) {
+            _xref = parent->xref();
+            _xref.lock()->add(this);
+        }
 	}
 
 	Object::~Object()
 	{
-		_parent->removeObject(this);
+		if (auto x = _xref.lock())
+            x->remove(this);
 	}
 
 	std::string& Object::operator[](std::string key)
@@ -30,7 +33,7 @@ namespace PDF_Plus {
 		return _dict[key];
 	}
 
-	void Object::write(std::ostream& out) const
+	void Object::write(std::ostream& out)
 	{
 		out << _number << " 0 obj";
 		_dict.write(out);
@@ -40,16 +43,17 @@ namespace PDF_Plus {
 	std::size_t Object::size() const
 	{
 		std::stringstream s;
-		write(s);
-		return s.str().size();
+        auto o = *this;
+        o.write(s);
+		return s.str().length();
 	}
 
 	std::string Object::Ref(Object *o){
 		return std::to_string(o->objectNumber()) + " 0 R";
 	}
 
-	/// MARK: Private
-	
+    /// MARK: Private
+
 	/// Write object begin
 	/// @codeline '1 0 obj'
 	void Object::writeBegin(std::ostream& out) const
@@ -66,12 +70,22 @@ namespace PDF_Plus {
 	}
 
 	void Object::objectNumber(const uint64_t& num)
-	{
+    {
 		_number = num;
 	}
 	
 	const uint64_t& Object::objectNumber() const
-	{
+    {
 		return _number;
 	}
+
+    void Object::generationNumber(const uint64_t& gen)
+    {
+        _gen = gen;
+    }
+    
+    const uint64_t& Object::generationNumber() const
+    {
+        return _gen;
+    }
 }
