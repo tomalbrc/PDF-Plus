@@ -55,6 +55,7 @@
 		9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		9A5AE5C9233EC02300EACC93 /* Xref.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Xref.hpp; sourceTree = "<group>"; };
 		9A5AE5CB233EC49400EACC93 /* Xref.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Xref.cpp; sourceTree = "<group>"; };
+		9A5AE5CE233F5EBD00EACC93 /* Array.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Array.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 			children = (
 				9A5AE59B23380C8F00EACC93 /* main.cpp */,
 				9A5AE5A323380DF200EACC93 /* Dictionary.hpp */,
+				9A5AE5CE233F5EBD00EACC93 /* Array.hpp */,
 				9A5AE5B22339520900EACC93 /* Object.hpp */,
 				9A5AE5B723398BE600EACC93 /* Object.cpp */,
 				9A5AE5A62338102400EACC93 /* Document.hpp */,
