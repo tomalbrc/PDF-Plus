@@ -8,6 +8,7 @@
 
 #include "Xref.hpp"
 #include "Object.hpp"
+#include "ObjectRef.hpp"
 
 namespace PDF_Plus {
 
@@ -28,7 +29,7 @@ namespace PDF_Plus {
 	/**
 	
 	*/
-	void Xref::write(std::ostream& out, std::size_t headerOffset, std::string objref) const
+	std::ostream& Xref::write(std::ostream& out, std::size_t headerOffset, const ObjectRef& docInfo) const
 	{
 		std::stringstream ss;
 		
@@ -44,8 +45,9 @@ namespace PDF_Plus {
 		}
 		
 		out << "trailer <</Size " << _objs.size()+1 << " /Root 1 0 R /Info ";
-		out << objref << ">>" << '\n';
+		out << docInfo << ">>" << '\n';
 		out << "startxref" << '\n';
 		out << off + headerOffset << '\n'; // Directly After Header
+		return out;
 	}
 }

@@ -13,6 +13,7 @@
 #include <sstream>
 #include <string>
 #include <map>
+#include <variant>
 
 namespace PDF_Plus {
 	namespace Key {
@@ -25,10 +26,11 @@ namespace PDF_Plus {
 	/**
 	Dict
 	*/
-	template <class T>
+	template <class... Value_ts>
 	class Dictionary {
 	public:
-		using PropertyKey_t = std::string;
+		using Key_t = std::string;
+		using Value_t = std::variant<Value_ts...>;
 		
 		/**
 		 Braces operator, for easy manipulation of entries,
@@ -36,7 +38,7 @@ namespace PDF_Plus {
 		 Example:
 		 @codeline dict[TypeKey] = "/Page";
 		 */
-		T& operator[](const std::string& key)
+		Value_t& operator[](const std::string& key)
 		{
 			return _props[key];
 		}
@@ -46,23 +48,37 @@ namespace PDF_Plus {
 		 E.g.:
 		 @codeline <</Type /Page /Contents 4 0 R>>
 		 */
-		void write(std::ostream& out) const
+		std::ostream& write(std::ostream& out) const
 		{
 			std::string res;
 			for (const auto& kvPair: _props) {
-				res += "/" + kvPair.first + " " + kvPair.second + " ";
+				auto& val = kvPair.second;
+				std::ostringstream ss;
+				
+				auto cb = [&ss](auto& t) {
+					ss << t;
+				};
+				std::visit(cb, val);
+				
+				res += "/" + kvPair.first + " " + ss.str() + " ";
 			}
 			
 			if (!res.empty() && res.back() == ' ')
 				res.pop_back(); // remove last char if space
 			
-			out << "<<" << res << ">>" << '\n';
+			out << "<<" << res << ">>";
+			
+			return out;
+		}
+		
+		friend std::ostream& operator<<(std::ostream& out, const Dictionary& t)
+		{
+			t.write(out);
+			return out;
 		}
 		
 	private:
-		using PropertyMap_t = std::map<PropertyKey_t, T>;
-		
-		PropertyMap_t _props;
+		std::map<Key_t, Value_t> _props;
 	};
 }
 

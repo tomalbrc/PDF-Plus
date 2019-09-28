@@ -11,6 +11,7 @@
 
 #include <cstdio>
 #include "Object.hpp"
+#include "ObjectRef.hpp"
 
 namespace PDF_Plus {
     class Document;
@@ -22,13 +23,12 @@ namespace PDF_Plus {
         /**
          
          */
-        DocumentInfo(const Document* parent, const std::string& title) : Object{parent}
+        DocumentInfo(const std::weak_ptr<Xref>& parent, const std::string& title) : Object{parent}
         {
-            // TODO: Escape those strings ( Unbalanced Parenthesis! )
-            (*this)["Title"] = "("+title+")";
-            (*this)["Author"] = "(Doc-Author)";
-            (*this)["Creator"] = "(PDF-PLUS Lib)";
-            (*this)["Producer"] = "(PDF-PLUS Lib)";
+			(*this)["Title"] = String{title};
+			(*this)["Author"] = String{"Doc-Author"};
+			(*this)["Creator"] = String{"PDF-PLUS Lib"};
+			(*this)["Producer"] = String{"PDF-PLUS Lib"};
         }
     };
 }

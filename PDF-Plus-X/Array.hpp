@@ -13,18 +13,20 @@
 #include <vector>
 #include <iostream>
 
-template <class T>
+template <class... Ts>
 class Array {
 public:
-	Array() = default;
-	Array(const std::vector<T>& data) : _data{data} {}
-	Array(std::vector<T>&& data) : _data{std::move(data)} {}
+	using Value_t = std::variant<Ts...>;
 	
-	void append(const T& item) {
+	Array() = default;
+	Array(const std::vector<Value_t>& data) : _data{data} {}
+	Array(std::vector<Value_t>&& data) : _data{std::move(data)} {}
+	
+	void append(const Value_t& item) {
 		_data.emplace_back(item);
 	}
 	
-	void remove(const T& item) {
+	void remove(const Value_t& item) {
 		_data.erase(std::remove(_data.begin(), _data.end(), item), _data.end());
 	}
 	
@@ -36,17 +38,31 @@ public:
 		return _data.empty();
 	}
 	
-	friend std::ostream& operator<<(std::ostream& out, const Array<T>& array) {
+	auto& at(const std::size_t& idx) const {
+		return _data.at(idx);
+	}
+	
+	friend std::ostream& operator<<(std::ostream& out, const Array<Ts...>& array) {
 		out << '[';
 		
-		for (const auto& item: array._data)
-			out << item << ' ';
+		if (!array._data.empty()) {
+			for (auto it = array._data.begin(); it != array._data.end(); it++) {
+				auto& val = *it;
+		
+				auto cb = [&](auto& item){
+					out << item << (it==array._data.end()-1 ? "" :" ");
+				};
+				std::visit(cb, val);
+			}
+		}
 		
 		out << ']';
+		
+		return out;
 	}
 	
 private:
-	std::vector<T> _data;
+	std::vector<Value_t> _data;
 };
 
 #endif /* Array_hpp */

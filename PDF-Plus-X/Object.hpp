@@ -12,12 +12,16 @@
 #include <cstdio>
 #include <string>
 #include <sstream>
+#include <variant>
+#include "String.hpp"
+#include "Array.hpp"
 #include "Dictionary.hpp"
 #include "Xref.hpp"
 
 namespace PDF_Plus {
-	class Document;
-
+	using MultiVariantArray = Array<ObjectRef, std::string, String, int, float>;
+	using MultiVariantDict = Dictionary<ObjectRef, std::string, String, int, float, MultiVariantArray>;
+	
 	class Object {
 	public:
 		using Type = std::string;
@@ -25,32 +29,62 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		Object(const Document* parent, const Type& type = {});
+		Object(const std::weak_ptr<Xref>& parent) {
+			if (auto p = parent.lock()) {
+				_xref = parent;
+				p->add(this);
+			}
+		}
 		
 		/**
 		 
 		 */
-		virtual ~Object();
+		virtual ~Object() {
+			if (auto x = _xref.lock()) {
+				x->remove(this);
+			}
+		}
 		
 		/**
 		 
 		 */
-		std::string& operator[](std::string key);
+		MultiVariantDict::Value_t& operator[](const std::string& key) {
+			return _dict[key];
+		}
 		
 		/**
 		 
 		 */
-		virtual void write(std::ostream& out);
-		
+		virtual std::ostream& write(std::ostream& out) {
+			writeBegin(out);
+			_dict.write(out);
+			writeEnd(out);
+			
+			return out;
+		}
 		/**
 		 
 		 */
-		virtual std::size_t size() const;
+		virtual std::size_t size() const {
+			std::ostringstream s;
+			auto o = *this;
+			o.write(s);
+			return s.str().length();
+		}
 		
 		/**
-		 
+		 Current Object id inside the document
 		 */
-		static std::string Ref(Object *o);
+		const uint64_t& objectNumber() const {
+			return _number;
+		}
+		
+		/**
+		 Object generation number
+		 */
+		const uint64_t& generationNumber() const {
+			return _gen;
+		}
 		
 	protected:
 		const char NL = '\n';
@@ -58,43 +92,41 @@ namespace PDF_Plus {
 		uint64_t _number = 0;
         uint64_t _gen = 0;
 		
-		Type _type;
-		Dictionary<std::string> _dict;
+		MultiVariantDict _dict;
 		std::weak_ptr<Xref> _xref;
 		
 		/**
 		 Write object begin, '1 0 obj\n'
 		 */
-		void writeBegin(std::ostream& out) const;
+		void writeBegin(std::ostream& out) const {
+			// Object number -space- Object Generation
+			out << _number << " 0 obj" << NL;
+		}
 		
 		/**
 		 Write object begin, 'endobj\n'
 		 */
-		void writeEnd(std::ostream& out) const;
-		
+		void writeEnd(std::ostream& out) const {
+			out << NL << "endobj" << NL;
+		}
 		
 		
 		friend class Xref;
 		/**
 		 Change Object id, only call this from Document
 		 */
-		void objectNumber(const uint64_t& id);
+		void objectNumber(const uint64_t& num) {
+			_number = num;
+		}
 		
-		/**
-		 Current Object id inside the document
-		 */
-		const uint64_t& objectNumber() const;
-        
         /**
-         Object generation number
+         Set the Object generation number
          */
-        void generationNumber(const uint64_t& gen);
-        
-        /**
-         Object generation number
-         */
-        const uint64_t& generationNumber() const;
+		void generationNumber(const uint64_t& gen) {
+			_gen = gen;
+		}
 	};
 }
+
 
 #endif /* XObject_hpp */

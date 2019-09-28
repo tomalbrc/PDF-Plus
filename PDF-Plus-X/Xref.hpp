@@ -15,8 +15,10 @@
 #include <iostream>
 #include <vector>
 
+
 namespace PDF_Plus {
 	class Object; // forwd. decl. needed (circular dep on Object and Xref (parent/child relationship), Object is templated)
+	class ObjectRef;
 	/**
 	 
 	 */
@@ -51,7 +53,7 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		void write(std::ostream& out, std::size_t headerOffset, std::string objref) const;
+		std::ostream& write(std::ostream& out, std::size_t headerOffset, const ObjectRef& docInfo) const;
 		
 	private:
 		std::vector<Object*> _objs;

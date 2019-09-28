@@ -9,6 +9,8 @@
 #include "Document.hpp"
 #include "DocumentInfo.hpp"
 
+#include "ObjectRef.hpp"
+
 namespace PDF_Plus {
 	
 	Document::Document(const Version& docVersion)
@@ -16,8 +18,8 @@ namespace PDF_Plus {
 		_xref = std::make_shared<Xref>();
 
 		_docVersion = docVersion;
-		_catalog = std::make_unique<Catalog>(this);
-		_info = std::make_unique<DocumentInfo>(this, "Demo PDF");
+		_catalog = std::make_unique<Catalog>(_xref);
+		_info = std::make_unique<DocumentInfo>(_xref, "Demo PDF");
 
 		_headerOffset = generateHeader().length();
 	}
@@ -33,7 +35,7 @@ namespace PDF_Plus {
 	/**
 	 
 	 */
-	void Document::write(std::ostream& out) const
+	std::ostream& Document::write(std::ostream& out) const
 	{
 		const auto NL = '\n';
 		out << generateHeader();
@@ -42,8 +44,22 @@ namespace PDF_Plus {
 		for (const auto& obj: *_xref)
 			obj->write(out);
 		
-		_xref->write(out, _headerOffset, Object::Ref(_info.get()));
+		_xref->write(out, _headerOffset, ObjectRef{_info.get()});
 		out << "%%EOF" << NL;
+		
+		return out;
+	}
+
+	std::ostream& operator<<(std::ostream &out, const 	PDF_Plus::Document &d) {
+		return d.write(out);
+	}
+
+	std::weak_ptr<Xref> Document::xref() const {
+		return _xref;
+	}
+
+	Document::operator std::weak_ptr<Xref>() {
+		return _xref;
 	}
 
 	/// MARK: Private

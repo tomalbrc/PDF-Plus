@@ -11,6 +11,7 @@
 
 #include <cstdio>
 #include "Object.hpp"
+#include "ObjectRef.hpp"
 #include "Stream.hpp"
 #include "Font.hpp"
 
@@ -23,17 +24,18 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		Page(const Document* parent) : Object{parent, "Page"}
+		Page(const std::weak_ptr<Xref>& parent) : Object{parent}
 		{
 			// Din-A4
+			(*this)["Type"] = "/Page";
 			(*this)["MediaBox"] = "[0 0 595 842]";
 			(*this)["TrimBox"] = "[0 0 595 842]";
 
 			_resources = std::make_shared<Font>(parent);
-			(*this)["Resources"] = Object::Ref(_resources.get());
+			(*this)["Resources"] = ObjectRef{_resources.get()};
 		
 			_contents = std::make_shared<Stream>(parent);
-			(*this)["Contents"] = Object::Ref(_contents.get());
+			(*this)["Contents"] = ObjectRef{_contents.get()};
             
             (*this)["Rotate"] = "0";
 		}

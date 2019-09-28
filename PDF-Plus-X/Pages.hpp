@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include "Object.hpp"
+#include "ObjectRef.hpp"
+#include "Array.hpp"
 #include "Page.hpp"
 
 namespace PDF_Plus {
@@ -22,9 +24,10 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		Pages(const Document* parent) : Object{parent, "Pages"}
+		Pages(const std::weak_ptr<Xref>& parent) : Object{parent}
 		{
-
+			(*this)["Type"] = "/Pags";
+			(*this)["Kids"] = MultiVariantArray{};
 		}
 		
 		/**
@@ -32,18 +35,12 @@ namespace PDF_Plus {
 		 */
 		void add(const std::shared_ptr<Page>& page)
 		{
-			(*page)["Parent"] = Object::Ref(this);
+			(*page)["Parent"] = ObjectRef{this};
 			_pageList.emplace_back(page);
 			
 			(*this)["Count"] = std::to_string(_pageList.size());
 			
-			// TODO: Add ALL kids!!
-			std::string kids = "[";
-			for (auto& p: _pageList)
-				kids += Object::Ref(p.get()) + " ";
-			kids.pop_back(); // remove last char // TODO: bounds check!
-			kids += "]";
-			(*this)["Kids"] = kids;
+			std::get<MultiVariantArray>((*this)["Kids"]).append(ObjectRef{page.get()});
 		}
 		
 	private:

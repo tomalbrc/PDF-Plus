@@ -11,6 +11,7 @@
 
 #include <cstdio>
 #include "Object.hpp"
+#include "ObjectRef.hpp"
 #include "Pages.hpp"
 #include "Page.hpp"
 
@@ -23,11 +24,12 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		Catalog(const Document* parent) :
-			Object{parent, "Catalog"}
+		Catalog(const std::weak_ptr<Xref>& parent) :
+			Object{parent}
 		{
+			(*this)["Type"] = "/Catalog";
 			_pages = std::make_shared<Pages>(parent);
-			(*this)["Pages"] = Object::Ref(_pages.get());
+			(*this)["Pages"] = ObjectRef{_pages.get()};
 		}
 		
 		/**

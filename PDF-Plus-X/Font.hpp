@@ -21,7 +21,7 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		Font(const Document* parent) : Object{parent}
+		Font(const std::weak_ptr<Xref>& parent) : Object{parent}
 		{
 			(*this)["Font"] = "<</F1 <</Type /Font /Subtype /Type1 /BaseFont /Helvetica>> >>";
 		}

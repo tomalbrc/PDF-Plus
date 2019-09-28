@@ -42,12 +42,23 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		virtual void write(std::ostream& out) const;
+		virtual std::ostream& write(std::ostream& out) const;
 		
-		std::weak_ptr<Xref> xref() const
-		{
-			return _xref;
-		}
+		/**
+		 
+		 */
+		friend std::ostream& operator << (std::ostream &out, const PDF_Plus::Document &d);
+		
+		/**
+		 Cross reference table of this Document
+		 */
+		std::weak_ptr<Xref> xref() const;
+		
+		/**
+		 Cross reference table of this Document,
+		 operator for implicit conversion
+		 */
+		operator std::weak_ptr<Xref>();
 		
 	private:
 		std::size_t _headerOffset = 0;
@@ -61,7 +72,6 @@ namespace PDF_Plus {
 		 */
 		std::string generateHeader() const;
 	};
-
 }
 
 #endif /* Document_hpp */

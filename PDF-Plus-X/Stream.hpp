@@ -18,14 +18,15 @@
 
 namespace PDF_Plus {
 	/**
-	 TODO: Own class for the Stream and separate StreamObject as Container for it
+	 Object with Dict and additional stream data (libz compressed)
+	 See PDF Reference Section #.#.#
 	 */
 	class Stream : public Object {
 	public:
 		/**
 		 
 		 */
-		Stream(const Document* parent) : Object{parent}
+		Stream(const std::weak_ptr<Xref>& parent) : Object{parent}
 		{
 			(*this)["Filter"] = "/FlateDecode";
 		}
@@ -41,7 +42,7 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		virtual void write(std::ostream& out) override
+		virtual std::ostream& write(std::ostream& out) override
 		{
 			auto data = this->compressData(this->streamData);
             _dict[Key::LengthKey] = std::to_string(data.size()+1);
@@ -49,7 +50,7 @@ namespace PDF_Plus {
 			writeBegin(out);
 			{
 				_dict.write(out);
-				out << "stream" << NL; // Stream begin
+				out << NL << "stream" << NL; // Stream begin
 				
 				for (const auto& c: data)
 					out << (const unsigned char)c;
@@ -57,6 +58,8 @@ namespace PDF_Plus {
 				out << NL << "endstream" << NL; // stream end
 			}
 			writeEnd(out);
+			
+			return out;
 		}
 		
 		/**
