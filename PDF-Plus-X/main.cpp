@@ -18,7 +18,9 @@
 #include "String.hpp"
 
 
-
+/**
+ Example Timetable
+ */
 void make_table(PDF_Plus::Page *page)
 {
 	int x = 0;
@@ -80,7 +82,7 @@ int main(int argc, const char * argv[])
 	ofs.open("/tmp/pdfplus.pdf");
 	std::cout << *doc;
 	ofs << *doc;
-
+	
 	
 	return 0;
 }
