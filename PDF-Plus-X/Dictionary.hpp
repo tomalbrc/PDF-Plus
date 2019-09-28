@@ -23,7 +23,7 @@ namespace PDF_Plus {
 	}
 	
 	template <class T>
-	class Dict {
+	class Dictionary {
 	public:
 		using PropertyKey_t = std::string;
 		

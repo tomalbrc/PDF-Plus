@@ -12,7 +12,7 @@
 #include <cstdio>
 #include <string>
 #include <sstream>
-#include "Dict.hpp"
+#include "Dictionary.hpp"
 #include "Xref.hpp"
 
 namespace PDF_Plus {
@@ -59,7 +59,7 @@ namespace PDF_Plus {
         uint64_t _gen = 0;
 		
 		Type _type;
-		Dict<std::string> _dict;
+		Dictionary<std::string> _dict;
 		std::weak_ptr<Xref> _xref;
 		
 		/**
