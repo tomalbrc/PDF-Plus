@@ -27,12 +27,15 @@ namespace PDF_Plus {
 		{
 			// Din-A4
 			(*this)["MediaBox"] = "[0 0 595 842]";
-			
+			(*this)["TrimBox"] = "[0 0 595 842]";
+
 			_resources = std::make_shared<Font>(parent);
 			(*this)["Resources"] = Object::Ref(_resources.get());
 		
 			_contents = std::make_shared<Stream>(parent);
 			(*this)["Contents"] = Object::Ref(_contents.get());
+            
+            (*this)["Rotate"] = "0";
 		}
 		
 		void setPageSize(int width, int height)
@@ -40,6 +43,7 @@ namespace PDF_Plus {
 			std::stringstream s;
 			s << "[" << 0 << " " << 0 << " " << width << " " << height << "]";
 			(*this)["MediaBox"] = s.str();
+			(*this)["TrimBox"] = s.str();
 		}
 		
 		/**
