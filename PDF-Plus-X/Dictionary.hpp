@@ -22,6 +22,9 @@ namespace PDF_Plus {
 		const std::string FontKey = "Font";
 	}
 	
+	/**
+	Dict
+	*/
 	template <class T>
 	class Dictionary {
 	public:
