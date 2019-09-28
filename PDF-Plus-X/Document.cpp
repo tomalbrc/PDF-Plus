@@ -33,7 +33,7 @@ namespace PDF_Plus {
 	/**
 	 
 	 */
-	void Document::write(std::ostream& out)
+	void Document::write(std::ostream& out) const
 	{
 		const auto NL = '\n';
 		out << generateHeader();
