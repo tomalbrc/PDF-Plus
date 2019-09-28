@@ -1,3 +1,16 @@
+# PDF+
+
+### pi-di-ɛf+
+- The art of writing PDF files using c++
+
+PDF Reference: https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/pdf_reference_archives/PDFReference.pdf
+Nice Diagrams related to the PDF structure: https://github.com/feliam/miniPDF/blob/master/README.md
+Handmade PDF:
+https://blog.idrsolutions.com/2010/10/make-your-own-pdf-file-part-4-hello-world-pdf/
+
+
+CMAKE:
+https://cmake.org/examples/
 
 
 # PDF+ / PDF-Plus
@@ -10,7 +23,7 @@
 
 The goal is to learn enough about the PDF specification
 and in the end be able to generate PDF files with 3D/Multimedia support.
-The generated PDF are PDF/A conform.
+Conformance with a PDF Standard is also a goal for this library.
   
 Feel free to contribute :)
 
@@ -25,16 +38,16 @@ Tested with Apple Clang 11
 #
 
 ### TODO
-* Annotations for Pages
-* Better `obj` referencing
-* Easier Arrays
-* Templated `Object` (`obj` can be an array or dict etc..)
-* 3D Support
-* Image support
-* Metadata support
-* Stronger types (much is stringly typed a.t.m., see `PDF_Plus::Object::Ref` for example)
-* Better stream handling
-* Implement stream encoding/compression
+- [ ] Annotations for Pages
+- [ ] Templated `Object` (indirect references, etc)
+- [ ] 3D Support
+- [ ] Image support
+- [ ] Metadata support
+- [ ] Wiki
+- [ ] Documentation
+- [x] ~~Stronger types (much is stringly typed a.t.m., see `PDF_Plus::Object::Ref` for example)~~
+- [x] ~~Better stream handling~~
+- [x] ~~Implement stream compression~~
 
 #
 
