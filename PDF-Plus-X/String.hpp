@@ -31,7 +31,7 @@ public:
 	}
 	
 	friend std::ostream& operator<<(std::ostream& out, const String& str) {
-		return out << '(' << str.escape(str._data) << ')' << '\n';
+		return out << '(' << str.escape(str._data) << ')';
 	}
 	
 private:

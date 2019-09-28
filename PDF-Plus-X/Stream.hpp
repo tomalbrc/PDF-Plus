@@ -55,7 +55,7 @@ namespace PDF_Plus {
 				for (const auto& c: data)
 					out << (const unsigned char)c;
 				
-				out << NL << "endstream" << NL; // stream end
+				out << NL << "endstream"; // stream end
 			}
 			writeEnd(out);
 			
