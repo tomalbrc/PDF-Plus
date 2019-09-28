@@ -10,8 +10,7 @@
 
 The goal is to learn enough about the PDF specification
 and in the end be able to generate PDF files with 3D/Multimedia support.
-I'm not aiming for PDF/A or PDF/* conformance.
-Important is that at least Adobe's Acrobat Reader can read a generated PDF file.
+The generated PDF are PDF/A conform.
   
 Feel free to contribute :)
 
