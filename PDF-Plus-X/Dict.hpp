@@ -53,7 +53,7 @@ namespace PDF_Plus {
 			if (!res.empty() && res.back() == ' ')
 				res.pop_back(); // remove last char if space
 			
-			out << "<<" << res << ">>";
+			out << "<<" << res << ">>" << '\n';
 		}
 		
 	private:

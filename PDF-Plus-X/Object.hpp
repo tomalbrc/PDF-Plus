@@ -60,15 +60,15 @@ namespace PDF_Plus {
 		
 		Type _type;
 		Dict<std::string> _dict;
-		std::weak_ptr<Xref> _xref; // FIXME: Const-correct..?
+		std::weak_ptr<Xref> _xref;
 		
 		/**
-		 Write object begin, '1 0 obj <<'
+		 Write object begin, '1 0 obj\n'
 		 */
 		void writeBegin(std::ostream& out) const;
 		
 		/**
-		 Write object begin, '>> endobj'
+		 Write object begin, 'endobj\n'
 		 */
 		void writeEnd(std::ostream& out) const;
 		

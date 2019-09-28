@@ -35,7 +35,7 @@ namespace PDF_Plus {
 
 	void Object::write(std::ostream& out)
 	{
-		out << _number << " 0 obj";
+		writeBegin(out);
 		_dict.write(out);
 		writeEnd(out);
 	}
@@ -59,7 +59,7 @@ namespace PDF_Plus {
 	void Object::writeBegin(std::ostream& out) const
 	{
 		// Object number -space- Object Generation
-		out << _number << " 0 obj";
+		out << _number << " 0 obj" << NL;
 	}
 	
 	/// Write object end,

@@ -49,13 +49,12 @@ namespace PDF_Plus {
 			writeBegin(out);
 			{
 				_dict.write(out);
-				out << "stream" << '\n'; // Stream begin
+				out << "stream" << NL; // Stream begin
 				
 				for (const auto& c: data)
 					out << (const unsigned char)c;
 				
-				out << '\n';
-				out << "endstream" << '\n'; // stream end
+				out << NL << "endstream" << NL; // stream end
 			}
 			writeEnd(out);
 		}
