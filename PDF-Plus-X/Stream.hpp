@@ -118,7 +118,7 @@ namespace PDF_Plus {
 			compress(reinterpret_cast<Bytef*>(buffer),
 					 &blen,
 					 reinterpret_cast<const Bytef*>(data.data()),
-					 data.size()+1);
+					 data.size());
 			
 			std::vector<std::byte> res{buffer, buffer+blen};
 			
