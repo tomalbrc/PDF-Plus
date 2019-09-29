@@ -13,14 +13,16 @@
 #include <string>
 #include <sstream>
 #include <variant>
+
 #include "String.hpp"
 #include "Array.hpp"
 #include "Dictionary.hpp"
 #include "Xref.hpp"
+#include "Key.h"
 
 namespace PDF_Plus {
-	using MultiVariantArray = Array<ObjectRef, std::string, String, int, float>;
-	using MultiVariantDict = Dictionary<ObjectRef, std::string, String, int, float, MultiVariantArray>;
+	using MultiVariantArray = Array<int, uint64_t, std::size_t, ObjectRef, std::string, String, float>;
+	using MultiVariantDict = Dictionary<int, uint64_t, std::size_t, ObjectRef, std::string, String, float, MultiVariantArray>;
 	
 	class Object {
 	public:
@@ -100,7 +102,7 @@ namespace PDF_Plus {
 		 */
 		void writeBegin(std::ostream& out) const {
 			// Object number -space- Object Generation
-			out << _number << " 0 obj" << NL;
+			out << _number << ' ' << _gen << ' ' << "obj" << NL;
 		}
 		
 		/**

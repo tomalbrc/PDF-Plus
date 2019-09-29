@@ -25,10 +25,10 @@ namespace PDF_Plus {
          */
         DocumentInfo(const std::weak_ptr<Xref>& parent, const std::string& title) : Object{parent}
         {
-			(*this)["Title"] = String{title};
-			(*this)["Author"] = String{"Doc-Author"};
-			(*this)["Creator"] = String{"PDF-PLUS Lib"};
-			(*this)["Producer"] = String{"PDF-PLUS Lib"};
+			_dict["Title"] = String{title};
+			_dict["Author"] = String{"Doc-Author"};
+			_dict["Creator"] = String{"PDF-PLUS Lib"};
+			_dict["Producer"] = String{"PDF-PLUS Lib"};
         }
     };
 }

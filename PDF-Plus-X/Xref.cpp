@@ -7,8 +7,7 @@
 //
 
 #include "Xref.hpp"
-#include "Object.hpp"
-#include "ObjectRef.hpp"
+#include "PDF_Plus.h"
 
 namespace PDF_Plus {
 

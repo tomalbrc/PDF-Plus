@@ -56,6 +56,10 @@
 		9A5AE5CE233F5EBD00EACC93 /* Array.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Array.hpp; sourceTree = "<group>"; };
 		9A5AE5D1233FA74B00EACC93 /* String.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = String.hpp; sourceTree = "<group>"; };
 		9A5AE5D4233FAE5400EACC93 /* ObjectRef.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectRef.hpp; sourceTree = "<group>"; };
+		9A5AE5D723401FA200EACC93 /* IndirectObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IndirectObject.hpp; sourceTree = "<group>"; };
+		9A5AE5D9234020BE00EACC93 /* PDF_Plus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDF_Plus.h; sourceTree = "<group>"; };
+		9A5AE5DA23402CAA00EACC93 /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
+		9A5AE5DB2340A6AB00EACC93 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,12 +94,16 @@
 		9A5AE59A23380C8F00EACC93 /* PDF-Plus-X */ = {
 			isa = PBXGroup;
 			children = (
+				9A5AE5D9234020BE00EACC93 /* PDF_Plus.h */,
+				9A5AE5DA23402CAA00EACC93 /* Key.h */,
+				9A5AE5DB2340A6AB00EACC93 /* Util.h */,
 				9A5AE59B23380C8F00EACC93 /* main.cpp */,
 				9A5AE5A323380DF200EACC93 /* Dictionary.hpp */,
 				9A5AE5CE233F5EBD00EACC93 /* Array.hpp */,
 				9A5AE5D4233FAE5400EACC93 /* ObjectRef.hpp */,
 				9A5AE5D1233FA74B00EACC93 /* String.hpp */,
 				9A5AE5B22339520900EACC93 /* Object.hpp */,
+				9A5AE5D723401FA200EACC93 /* IndirectObject.hpp */,
 				9A5AE5A62338102400EACC93 /* Document.hpp */,
 				9A5AE5BF233A95B100EACC93 /* Document.cpp */,
 				9A5AE5AF233829B800EACC93 /* Catalog.hpp */,

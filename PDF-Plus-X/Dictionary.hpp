@@ -16,13 +16,6 @@
 #include <variant>
 
 namespace PDF_Plus {
-	namespace Key {
-		// TODO: Add all possible keys?
-		const std::string TypeKey = "Type";
-		const std::string LengthKey = "Length";
-		const std::string FontKey = "Font";
-	}
-	
 	/**
 	Dict
 	*/
@@ -38,7 +31,12 @@ namespace PDF_Plus {
 		 Example:
 		 @codeline dict[TypeKey] = "/Page";
 		 */
-		Value_t& operator[](const std::string& key)
+		Value_t& operator[](const Key_t& key)
+		{
+			return _props[key];
+		}
+		
+		const Value_t& operator[](const Key_t& key) const
 		{
 			return _props[key];
 		}
@@ -71,6 +69,9 @@ namespace PDF_Plus {
 			return out;
 		}
 		
+		/**
+		 
+		 */
 		friend std::ostream& operator<<(std::ostream& out, const Dictionary& t)
 		{
 			t.write(out);

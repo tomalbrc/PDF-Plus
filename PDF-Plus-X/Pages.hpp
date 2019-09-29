@@ -26,8 +26,8 @@ namespace PDF_Plus {
 		 */
 		Pages(const std::weak_ptr<Xref>& parent) : Object{parent}
 		{
-			(*this)["Type"] = "/Pags";
-			(*this)["Kids"] = MultiVariantArray{};
+			_dict["Type"] = "/Pags";
+			_dict["Kids"] = MultiVariantArray{};
 		}
 		
 		/**
@@ -38,9 +38,9 @@ namespace PDF_Plus {
 			(*page)["Parent"] = ObjectRef{this};
 			_pageList.emplace_back(page);
 			
-			(*this)["Count"] = std::to_string(_pageList.size());
+			_dict["Count"] = std::to_string(_pageList.size());
 			
-			std::get<MultiVariantArray>((*this)["Kids"]).append(ObjectRef{page.get()});
+			std::get<MultiVariantArray>(_dict["Kids"]).append(ObjectRef{page.get()});
 		}
 		
 	private:

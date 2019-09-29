@@ -9,21 +9,14 @@
 #include <iostream>
 #include <fstream>
 
-#include "Dictionary.hpp"
-#include "Document.hpp"
-#include "Object.hpp"
-#include "Catalog.hpp"
-
-#include "Array.hpp"
-#include "String.hpp"
-
+#include "PDF_Plus.h"
 
 /**
  Example Timetable
  */
 void make_table(PDF_Plus::Page *page)
 {
-	int x = 0;
+	int x = -90;
 	int y = 400;
 	
 	int hc = 8;
@@ -52,7 +45,7 @@ void make_table(PDF_Plus::Page *page)
 			page->contents()->drawText(text,
 									   x+i*w+10,//x
 									   y+j*h+10,//y
-									   12);//font
+									   12);//font size
 		}
 	}
 }
@@ -65,10 +58,9 @@ int main(int argc, const char * argv[])
 	
 	auto page = std::make_shared<Page>(*doc);
 	page->contents()->drawText("Page 1", 10, 10, 10);
-	page->contents()->drawText("Hello, world!", 100, 750, 30);
-	page->contents()->drawRect(100-10, 750-10, 200, 50);
+	page->contents()->drawText("Timetable", 100, 750, 30);
+	page->contents()->drawRect(100-10, 750-10, 5*90, 50);
 	make_table(page.get());
-	
 	doc->addPage(page);
 	
 	auto page2 = std::make_shared<Page>(*doc);
@@ -77,12 +69,10 @@ int main(int argc, const char * argv[])
 	page2->contents()->drawRect(160, 210, 110, 110);
 	doc->addPage(page2);
 	
-	
 	std::ofstream ofs;
 	ofs.open("/tmp/pdfplus.pdf");
 	std::cout << *doc;
 	ofs << *doc;
-	
 	
 	return 0;
 }

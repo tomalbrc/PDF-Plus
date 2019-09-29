@@ -27,23 +27,26 @@ namespace PDF_Plus {
 		Page(const std::weak_ptr<Xref>& parent) : Object{parent}
 		{
 			// Din-A4
-			(*this)[Key::Type] = "/Page";
-			(*this)[Key::MediaBox] = MultiVariantArray{{0, 0, 595, 842}};
-			(*this)[Key::TrimBox] = MultiVariantArray{{2, 2, 595-4, 842-4}};
-
+			_dict[Key::Type] = "/Page";
+			setPageSize(595, 842); // DIN A4
+			setRotate(0);
+			
 			_resources = std::make_shared<Font>(parent);
-			(*this)["Resources"] = ObjectRef{_resources.get()};
+			_dict[Key::Resources] = ObjectRef{_resources.get()};
 		
 			_contents = std::make_shared<Stream>(parent);
-			(*this)["Contents"] = ObjectRef{_contents.get()};
-            
-            (*this)["Rotate"] = "0";
+			_dict[Key::Contents] = ObjectRef{_contents.get()};
 		}
 		
 		void setPageSize(int width, int height)
 		{
-			(*this)[Key::MediaBox] = MultiVariantArray{{0, 0, width, height}};
-			(*this)[Key::MediaBox] = MultiVariantArray{{0, 0, width, height}};
+			_dict[Key::MediaBox] = MultiVariantArray{{0, 0, width, height}};
+			_dict[Key::TrimBox] = MultiVariantArray{{0, 0, width, height}};
+		}
+		
+		void setRotate(int r)
+		{
+			_dict[Key::Rotate] = r;
 		}
 		
 		/**

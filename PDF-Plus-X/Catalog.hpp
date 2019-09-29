@@ -27,9 +27,9 @@ namespace PDF_Plus {
 		Catalog(const std::weak_ptr<Xref>& parent) :
 			Object{parent}
 		{
-			(*this)["Type"] = "/Catalog";
+			_dict["Type"] = "/Catalog";
 			_pages = std::make_shared<Pages>(parent);
-			(*this)["Pages"] = ObjectRef{_pages.get()};
+			_dict["Pages"] = ObjectRef{_pages.get()};
 		}
 		
 		/**

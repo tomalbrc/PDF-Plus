@@ -14,13 +14,33 @@
 #include "Object.hpp"
 
 namespace PDF_Plus {
+	/**
+	 
+	 */
 	class ObjectRef {
 	public:
-		Object *ptr;
+		ObjectRef() = default;
 		
-		friend std::ostream& operator<<(std::ostream& out, const ObjectRef& objr) {
-			return out << objr.ptr->objectNumber() << " 0 " << 'R';
+		/**
+		 
+		 */
+		ObjectRef(Object* ptr) { _ptr = ptr; }
+		
+		/**
+		 
+		 */
+		const Object* ptr() const {
+			return _ptr;
 		}
+		
+		/**
+		 
+		 */
+		friend std::ostream& operator<<(std::ostream& out, const ObjectRef& objr) {
+			return out << objr.ptr()->objectNumber() << ' ' << objr.ptr()->generationNumber() << ' ' << 'R';
+		}
+	private:
+		Object *_ptr = nullptr;
 	};
 }
 

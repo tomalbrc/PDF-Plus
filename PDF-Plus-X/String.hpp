@@ -16,20 +16,33 @@
 #include <regex>
 #include <iostream>
 
+/**
+ 
+ */
 class String {
 public:
+	/**
+	 
+	 */
 	String() = default;
+	
+	/**
+	 
+	 */
 	String(const std::string& data) : _data{data} {}
+	
+	/**
+	 
+	 */
 	String(std::string&& data) : _data{std::move(data)} {}
 	
 	auto operator==(const String& rhs) {
-		_data = rhs._data;
+		return rhs._data == _data;
 	}
 	
-	auto operator==(String&& rhs) {
-		_data = std::move(rhs._data);
-	}
-	
+	/**
+	 
+	 */
 	friend std::ostream& operator<<(std::ostream& out, const String& str) {
 		return out << '(' << str.escape(str._data) << ')';
 	}
@@ -37,6 +50,7 @@ public:
 private:
 	std::string _data;
 	
+	///
 	std::string escape(const std::string& text) const
 	{
 		auto cpy = text;
