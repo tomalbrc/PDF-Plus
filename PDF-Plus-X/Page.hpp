@@ -27,9 +27,9 @@ namespace PDF_Plus {
 		Page(const std::weak_ptr<Xref>& parent) : Object{parent}
 		{
 			// Din-A4
-			(*this)["Type"] = "/Page";
-			(*this)["MediaBox"] = "[0 0 595 842]";
-			(*this)["TrimBox"] = "[0 0 595 842]";
+			(*this)[Key::Type] = "/Page";
+			(*this)[Key::MediaBox] = MultiVariantArray{{0, 0, 595, 842}};
+			(*this)[Key::TrimBox] = MultiVariantArray{{2, 2, 595-4, 842-4}};
 
 			_resources = std::make_shared<Font>(parent);
 			(*this)["Resources"] = ObjectRef{_resources.get()};
@@ -42,10 +42,8 @@ namespace PDF_Plus {
 		
 		void setPageSize(int width, int height)
 		{
-			std::stringstream s;
-			s << "[" << 0 << " " << 0 << " " << width << " " << height << "]";
-			(*this)["MediaBox"] = s.str();
-			(*this)["TrimBox"] = s.str();
+			(*this)[Key::MediaBox] = MultiVariantArray{{0, 0, width, height}};
+			(*this)[Key::MediaBox] = MultiVariantArray{{0, 0, width, height}};
 		}
 		
 		/**
