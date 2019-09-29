@@ -26,7 +26,7 @@ namespace PDF_Plus {
 		 */
 		Pages(const std::weak_ptr<Xref>& parent) : Object{parent}
 		{
-			_dict["Type"] = "/Pags";
+			_dict["Type"] = "/Pages";
 			_dict["Kids"] = MultiVariantArray{};
 		}
 		
