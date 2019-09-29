@@ -40,8 +40,8 @@ namespace PDF_Plus {
 		
 		void setPageSize(int width, int height)
 		{
-			_dict[Key::MediaBox] = MultiVariantArray{{0, 0, width, height}};
-			_dict[Key::TrimBox] = MultiVariantArray{{0, 0, width, height}};
+			_dict[Key::MediaBox] = MultiVariantArray{0, 0, width, height};
+			_dict[Key::TrimBox] = MultiVariantArray{0, 0, width, height};
 		}
 		
 		void setRotate(int r)
