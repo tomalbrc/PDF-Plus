@@ -16,7 +16,7 @@
  */
 void make_table(PDF_Plus::Page *page)
 {
-	int x = -90;
+	int x = 0;
 	int y = 400;
 	
 	int hc = 8;
