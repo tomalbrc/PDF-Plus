@@ -95,7 +95,6 @@ int main(int argc, const char * argv[])
 	make_class(300, 270, "ObjectRef", {"set()", "get<Get_t>()"}, page2.get());
 	make_class(300, 190-45, "Stream", {"+ drawText()", "+ drawLine()", "+ drawRect()", "+ write()", "+ size()"}, page2.get());
 
-
 	doc->addPage(page2);
 	
 	std::ofstream ofs;

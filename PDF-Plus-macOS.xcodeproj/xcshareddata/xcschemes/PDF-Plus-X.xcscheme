@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A5AE59723380C8F00EACC93"
-               BuildableName = "PDF-Plus-X"
-               BlueprintName = "PDF-Plus-X"
-               ReferencedContainer = "container:PDF-Plus-X.xcodeproj">
+               BuildableName = "PDF-Plus-macOS"
+               BlueprintName = "PDF-Plus-macOS"
+               ReferencedContainer = "container:PDF-Plus-macOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -54,9 +54,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A5AE59723380C8F00EACC93"
-            BuildableName = "PDF-Plus-X"
-            BlueprintName = "PDF-Plus-X"
-            ReferencedContainer = "container:PDF-Plus-X.xcodeproj">
+            BuildableName = "PDF-Plus-macOS"
+            BlueprintName = "PDF-Plus-macOS"
+            ReferencedContainer = "container:PDF-Plus-macOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9A5AE59723380C8F00EACC93"
-            BuildableName = "PDF-Plus-X"
-            BlueprintName = "PDF-Plus-X"
-            ReferencedContainer = "container:PDF-Plus-X.xcodeproj">
+            BuildableName = "PDF-Plus-macOS"
+            BlueprintName = "PDF-Plus-macOS"
+            ReferencedContainer = "container:PDF-Plus-macOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
