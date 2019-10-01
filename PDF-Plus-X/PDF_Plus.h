@@ -22,6 +22,10 @@
 #include "Array.hpp"
 #include "String.hpp"
 
+#include "Font.hpp"
+#include "Image.hpp"
+#include "Resources.hpp"
+
 #include "Util.h"
 
 #endif /* PDF_Plus_h */
