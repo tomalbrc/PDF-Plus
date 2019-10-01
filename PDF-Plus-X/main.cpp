@@ -73,16 +73,16 @@ int main(int argc, const char * argv[])
 	auto page = std::make_shared<Page>(*doc);
 	page->contents()->drawText("Page 1", 10, 10, 10);
 	page->contents()->drawText("Timetable", 100, 750, 30);
-	page->contents()->drawRect(100-10, 750-10, 5*90, 50);
+	page->contents()->drawRect(100-10, 750-10, 450, 50);
 	make_table(page.get());
 	doc->addPage(page);
 	
 	auto page2 = std::make_shared<Page>(*doc);
 	page2->contents()->drawText("Page 2", 10, 10, 10);
-	page2->contents()->drawText("Class Diagram", 100, 750, 30);
-	page2->contents()->drawRect(100-10, 750-10, 5*90, 50);
+	page2->contents()->drawText("Class Diagram", 100, 755, 30);
+	page2->contents()->drawRect(100-10, 750-10, 410, 50);
 	
-	make_class(90, 600, "Array", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(90, 600, "Array", {"+ set()", "+ get<Get_t>()"}, page2.get());
 	make_class(90, 520, "Dictionary", {"set()", "get<Get_t>()"}, page2.get());
 	make_class(90, 440, "Object", {"set()", "get<Get_t>()"}, page2.get());
 	make_class(90, 360, "Document", {"set()", "get<Get_t>()"}, page2.get());
@@ -90,10 +90,11 @@ int main(int argc, const char * argv[])
 	make_class(90, 190, "Catalog", {"set()", "get<Get_t>()"}, page2.get());
 	make_class(300, 600, "Page", {"set()", "get<Get_t>()"}, page2.get());
 	make_class(300, 520, "Pages", {"set()", "get<Get_t>()"}, page2.get());
-	make_class(300, 440, "Stream", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(300, 440, "IndirectObject", {"value()", "write()"}, page2.get());
 	make_class(300, 360, "Font", {"set()", "get<Get_t>()"}, page2.get());
 	make_class(300, 270, "ObjectRef", {"set()", "get<Get_t>()"}, page2.get());
-	make_class(300, 190, "IndirectObject", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(300, 190-45, "Stream", {"+ drawText()", "+ drawLine()", "+ drawRect()", "+ write()", "+ size()"}, page2.get());
+
 
 	doc->addPage(page2);
 	
