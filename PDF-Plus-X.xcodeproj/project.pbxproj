@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		09445C0B233E214F000C537E /* DocumentInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DocumentInfo.hpp; sourceTree = "<group>"; };
+		9A0FA5672343B81B00F3C0AA /* Image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Image.hpp; sourceTree = "<group>"; };
 		9A5AE59823380C8F00EACC93 /* PDF-Plus-X */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PDF-Plus-X"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5AE59B23380C8F00EACC93 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9A5AE5A323380DF200EACC93 /* Dictionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Dictionary.hpp; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 				9A5AE5B523395D5500EACC93 /* Pages.hpp */,
 				9A5AE5BA2339ACD300EACC93 /* Stream.hpp */,
 				9A5AE5BC233A8FC000EACC93 /* Font.hpp */,
+				9A0FA5672343B81B00F3C0AA /* Image.hpp */,
 				09445C0B233E214F000C537E /* DocumentInfo.hpp */,
 				9A5AE5C9233EC02300EACC93 /* Xref.hpp */,
 				9A5AE5CB233EC49400EACC93 /* Xref.cpp */,
