@@ -50,10 +50,10 @@ namespace PDF_Plus {
 			writeBegin(out);
 			{
 				_dict.write(out);
-				out << NL << "stream" << NL; // Stream begin
+				out << NL << "stream"; // Stream begin
 				
 				for (const auto& c: data)
-					out << (const unsigned char)c;
+					out << static_cast<const unsigned char>(c);
 				
 				out << NL << "endstream"; // stream end
 			}
@@ -70,11 +70,11 @@ namespace PDF_Plus {
 			text = escape(text);
 			
 			std::stringstream streamData;
-			streamData << "BT";
+			streamData << NL << "BT";
 			streamData << " /F1 " << fontSize << " Tf";
 			streamData << " " << x << " " << y << " Td";
 			streamData << " (" << text << ")Tj";
-			streamData << " ET" << '\n';
+			streamData << " ET";
 			
 			read(streamData.str());
 		}
@@ -86,14 +86,14 @@ namespace PDF_Plus {
 		{
 			std::stringstream streamData;
 
-			streamData << x1 << " " << y1;
+			streamData << NL << x1 << " " << y1;
 			// START: x y m
 			// LINE TO: x y l
 			// CURVE: x1 y1 x2 y2 v
 			// RECT: x1 y1 x2 y2 re
 			// h = close path
 			// S = stroke path
-			streamData << " m " << x2 << " " << y2 << " l h S" << '\n';
+			streamData << " m " << x2 << " " << y2 << " l h S";
 		
 			read(streamData.str());
 		}
@@ -104,28 +104,29 @@ namespace PDF_Plus {
 		void drawRect(int x1, int y1, int x2, int y2)
 		{
 			std::stringstream streamData;
-			streamData << x1 << " " << y1 << " " << x2 << " " << y2 << " re S" << '\n';
+			streamData << NL << x1 << " " << y1 << " " << x2 << " " << y2 << " re S";
 			read(streamData.str());
 		}
 		
 	private:
 		std::vector<std::byte> streamData;
 		
-		std::vector<std::byte> compressData(const std::vector<std::byte>& data) const
+		std::vector<std::byte> compressData(const std::vector<std::byte>& data)
 		{
 			static_assert(sizeof(Bytef) == sizeof(std::byte), "Bytef != std::byte");
 			
-			auto blen = data.size()*2;
+			uLongf blen = data.size()*2;
 			auto buffer = new std::byte[blen]();
 			compress(reinterpret_cast<Bytef*>(buffer),
 					 &blen,
 					 reinterpret_cast<const Bytef*>(data.data()),
-					 data.size());
+					 static_cast<uLongf>(data.size()));
 			
 			std::vector<std::byte> res{buffer, buffer+blen};
 			
 			delete[] buffer;
 			
+			res.insert(res.begin(), std::byte{'\n'});
 			return res;
 		}
 		
