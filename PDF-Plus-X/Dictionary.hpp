@@ -38,7 +38,7 @@ namespace PDF_Plus {
 		
 		const Value_t& operator[](const Key_t& key) const
 		{
-			return _props[key];
+			return _props.at(key);
 		}
 		
 		/**
@@ -74,8 +74,7 @@ namespace PDF_Plus {
 		 */
 		friend std::ostream& operator<<(std::ostream& out, const Dictionary& t)
 		{
-			t.write(out);
-			return out;
+			return t.write(out);
 		}
 		
 	private:
