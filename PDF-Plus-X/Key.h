@@ -19,6 +19,7 @@
 namespace PDF_Plus::Key {
 	// General
 	STR_KEY(Type);
+	STR_KEY(Subtype);
 	STR_KEY(Length);
 
 	// Page(s)
@@ -28,8 +29,19 @@ namespace PDF_Plus::Key {
 	STR_KEY(Contents);
 	STR_KEY(Resources);
 	STR_KEY(Rotate);
+	STR_KEY(Kids);
+	STR_KEY(Parent);
+	STR_KEY(Count);
 
+	// Resources
 	STR_KEY(Font);
+	STR_KEY(XObject);
+	
+	// Font
+	STR_KEY(BaseFont);
+	
+	// Stream
+	STR_KEY(Filter);
 }
 
 #endif /* Keys_h */
