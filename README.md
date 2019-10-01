@@ -18,15 +18,15 @@ Feel free to contribute :)
 
 You'll need a compiler that supports C++17 (C++1z)
 `std::filesystem` is not being used here (yet)
-Tested with Apple Clang 11
+
+Tested with Apple Clang 11, Clang 8.0.0 on Debian Linux and Visual Studio 2017
 
 #
 
 ### TODO
-- [ ] Annotations for Pages
-- [ ] Templated `Object` (indirect references, etc)
-- [ ] 3D Support
 - [ ] Image support
+- [ ] Annotations for Pages
+- [ ] 3D Support
 - [ ] Metadata support
 - [ ] Wiki
 - [ ] Documentation
@@ -39,7 +39,7 @@ Tested with Apple Clang 11
 ### Usage
 *Example usage:*
 ```
-\#include "PDF_Plus.h"
+#include "PDF_Plus.h"
 int main(int argc, const char * argv[])
 {
 	using namespace PDF_Plus;
