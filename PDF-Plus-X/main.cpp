@@ -70,7 +70,7 @@ int main(int argc, const char * argv[])
 	doc->addPage(page2);
 	
 	std::ofstream ofs;
-	ofs.open("/tmp/pdfplus.pdf");
+	ofs.open("/tmp/pdfplus.pdf", std::ios::binary);
 	std::cout << *doc;
 	ofs << *doc;
 	
