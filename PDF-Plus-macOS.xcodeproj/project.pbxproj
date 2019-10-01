@@ -38,30 +38,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		09445C0B233E214F000C537E /* DocumentInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = DocumentInfo.hpp; path = ../include/DocumentInfo.hpp; sourceTree = "<group>"; };
-		9A0FA5672343B81B00F3C0AA /* Image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Image.hpp; path = ../include/Image.hpp; sourceTree = "<group>"; };
-		9A0FA56A2343C17800F3C0AA /* Resources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Resources.hpp; path = ../include/Resources.hpp; sourceTree = "<group>"; };
+		09445C0B233E214F000C537E /* DocumentInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = DocumentInfo.hpp; path = include/DocumentInfo.hpp; sourceTree = "<group>"; };
+		9A0FA5672343B81B00F3C0AA /* Image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Image.hpp; path = include/Image.hpp; sourceTree = "<group>"; };
+		9A0FA56A2343C17800F3C0AA /* Resources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Resources.hpp; path = include/Resources.hpp; sourceTree = "<group>"; };
 		9A5AE59823380C8F00EACC93 /* PDF-Plus-macOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PDF-Plus-macOS"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A5AE59B23380C8F00EACC93 /* example.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = example.cpp; path = ../example.cpp; sourceTree = "<group>"; };
-		9A5AE5A323380DF200EACC93 /* Dictionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Dictionary.hpp; path = ../include/Dictionary.hpp; sourceTree = "<group>"; };
-		9A5AE5A62338102400EACC93 /* Document.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Document.hpp; path = ../include/Document.hpp; sourceTree = "<group>"; };
-		9A5AE5A92338271300EACC93 /* Page.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Page.hpp; path = ../include/Page.hpp; sourceTree = "<group>"; };
-		9A5AE5AF233829B800EACC93 /* Catalog.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Catalog.hpp; path = ../include/Catalog.hpp; sourceTree = "<group>"; };
-		9A5AE5B22339520900EACC93 /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Object.hpp; path = ../include/Object.hpp; sourceTree = "<group>"; };
-		9A5AE5B523395D5500EACC93 /* Pages.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Pages.hpp; path = ../include/Pages.hpp; sourceTree = "<group>"; };
-		9A5AE5BA2339ACD300EACC93 /* Stream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Stream.hpp; path = ../include/Stream.hpp; sourceTree = "<group>"; };
-		9A5AE5BC233A8FC000EACC93 /* Font.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Font.hpp; path = ../include/Font.hpp; sourceTree = "<group>"; };
-		9A5AE5BF233A95B100EACC93 /* Document.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Document.cpp; path = ../src/Document.cpp; sourceTree = "<group>"; };
+		9A5AE59B23380C8F00EACC93 /* example.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = example.cpp; sourceTree = "<group>"; };
+		9A5AE5A323380DF200EACC93 /* Dictionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Dictionary.hpp; path = include/Dictionary.hpp; sourceTree = "<group>"; };
+		9A5AE5A62338102400EACC93 /* Document.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Document.hpp; path = include/Document.hpp; sourceTree = "<group>"; };
+		9A5AE5A92338271300EACC93 /* Page.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Page.hpp; path = include/Page.hpp; sourceTree = "<group>"; };
+		9A5AE5AF233829B800EACC93 /* Catalog.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Catalog.hpp; path = include/Catalog.hpp; sourceTree = "<group>"; };
+		9A5AE5B22339520900EACC93 /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Object.hpp; path = include/Object.hpp; sourceTree = "<group>"; };
+		9A5AE5B523395D5500EACC93 /* Pages.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Pages.hpp; path = include/Pages.hpp; sourceTree = "<group>"; };
+		9A5AE5BA2339ACD300EACC93 /* Stream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Stream.hpp; path = include/Stream.hpp; sourceTree = "<group>"; };
+		9A5AE5BC233A8FC000EACC93 /* Font.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Font.hpp; path = include/Font.hpp; sourceTree = "<group>"; };
+		9A5AE5BF233A95B100EACC93 /* Document.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Document.cpp; path = src/Document.cpp; sourceTree = "<group>"; };
 		9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
-		9A5AE5C9233EC02300EACC93 /* Xref.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Xref.hpp; path = ../include/Xref.hpp; sourceTree = "<group>"; };
-		9A5AE5CB233EC49400EACC93 /* Xref.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Xref.cpp; path = ../src/Xref.cpp; sourceTree = "<group>"; };
-		9A5AE5CE233F5EBD00EACC93 /* Array.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Array.hpp; path = ../include/Array.hpp; sourceTree = "<group>"; };
-		9A5AE5D1233FA74B00EACC93 /* String.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = String.hpp; path = ../include/String.hpp; sourceTree = "<group>"; };
-		9A5AE5D4233FAE5400EACC93 /* ObjectRef.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ObjectRef.hpp; path = ../include/ObjectRef.hpp; sourceTree = "<group>"; };
-		9A5AE5D723401FA200EACC93 /* IndirectObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IndirectObject.hpp; path = ../include/IndirectObject.hpp; sourceTree = "<group>"; };
-		9A5AE5D9234020BE00EACC93 /* PDF_Plus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PDF_Plus.h; path = ../include/PDF_Plus.h; sourceTree = "<group>"; };
-		9A5AE5DA23402CAA00EACC93 /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Key.h; path = ../include/Key.h; sourceTree = "<group>"; };
-		9A5AE5DB2340A6AB00EACC93 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Util.h; path = ../include/Util.h; sourceTree = "<group>"; };
+		9A5AE5C9233EC02300EACC93 /* Xref.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Xref.hpp; path = include/Xref.hpp; sourceTree = "<group>"; };
+		9A5AE5CB233EC49400EACC93 /* Xref.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Xref.cpp; path = src/Xref.cpp; sourceTree = "<group>"; };
+		9A5AE5CE233F5EBD00EACC93 /* Array.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Array.hpp; path = include/Array.hpp; sourceTree = "<group>"; };
+		9A5AE5D1233FA74B00EACC93 /* String.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = String.hpp; path = include/String.hpp; sourceTree = "<group>"; };
+		9A5AE5D4233FAE5400EACC93 /* ObjectRef.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ObjectRef.hpp; path = include/ObjectRef.hpp; sourceTree = "<group>"; };
+		9A5AE5D723401FA200EACC93 /* IndirectObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IndirectObject.hpp; path = include/IndirectObject.hpp; sourceTree = "<group>"; };
+		9A5AE5D9234020BE00EACC93 /* PDF_Plus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PDF_Plus.h; path = include/PDF_Plus.h; sourceTree = "<group>"; };
+		9A5AE5DA23402CAA00EACC93 /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Key.h; path = include/Key.h; sourceTree = "<group>"; };
+		9A5AE5DB2340A6AB00EACC93 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Util.h; path = include/Util.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +119,7 @@
 				9A5AE5C9233EC02300EACC93 /* Xref.hpp */,
 				9A5AE5CB233EC49400EACC93 /* Xref.cpp */,
 			);
-			path = "PDF-Plus-X";
+			name = "PDF-Plus-X";
 			sourceTree = "<group>";
 		};
 		9A5AE5C1233C1D5E00EACC93 /* Frameworks */ = {
