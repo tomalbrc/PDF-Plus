@@ -24,9 +24,15 @@ namespace PDF_Plus {
 	using MultiVariantArray = Array<int, uint64_t, ObjectRef, std::string, String, float>;
 	using MultiVariantDict = Dictionary<int, uint64_t, ObjectRef, std::string, String, float, MultiVariantArray>;
 	
+	/**
+	
+	*/
 	class Object {
 	public:
-		using Type = std::string;
+		/**
+		 
+		 */
+		Object() = default;
 		
 		/**
 		 
@@ -88,6 +94,13 @@ namespace PDF_Plus {
 			return _gen;
 		}
 		
+		/**
+		 Returns the underlying dictionary
+		 */
+		const MultiVariantDict& dictionary() const {
+			return _dict;
+		}
+		
 	protected:
 		const char NL = '\n';
 		
@@ -115,14 +128,14 @@ namespace PDF_Plus {
 		
 		friend class Xref;
 		/**
-		 Change Object id, only call this from Document
+		 Change Object id, only call this from Xref
 		 */
 		void objectNumber(const uint64_t& num) {
 			_number = num;
 		}
 		
         /**
-         Set the Object generation number
+         Set the Object generation number, only call this from Xref
          */
 		void generationNumber(const uint64_t& gen) {
 			_gen = gen;
