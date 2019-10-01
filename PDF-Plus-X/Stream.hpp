@@ -45,7 +45,7 @@ namespace PDF_Plus {
 		virtual std::ostream& write(std::ostream& out) override
 		{
 			auto data = this->compressData(this->streamData);
-			_dict[Key::Length] = uint64_t{data.size()+1};
+			_dict[Key::Length] = uint64_t{data.size()};
             
 			writeBegin(out);
 			{
