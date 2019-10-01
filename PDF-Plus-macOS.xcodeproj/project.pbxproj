@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A30D2BB2343E390004EF20E /* Document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5BF233A95B100EACC93 /* Document.cpp */; };
+		9A30D2BC2343E390004EF20E /* Xref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5CB233EC49400EACC93 /* Xref.cpp */; };
+		9A30D2BD2343E39D004EF20E /* libpdfplus.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A30D2B02343E381004EF20E /* libpdfplus.dylib */; };
 		9A5AE59C23380C8F00EACC93 /* example.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE59B23380C8F00EACC93 /* example.cpp */; };
-		9A5AE5C0233A95B100EACC93 /* Document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5BF233A95B100EACC93 /* Document.cpp */; };
 		9A5AE5C5233C1DA900EACC93 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */; };
 		9A5AE5C6233C1DA900EACC93 /* libz.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		9A5AE5CC233EC49400EACC93 /* Xref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5CB233EC49400EACC93 /* Xref.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,7 @@
 		09445C0B233E214F000C537E /* DocumentInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = DocumentInfo.hpp; path = include/DocumentInfo.hpp; sourceTree = "<group>"; };
 		9A0FA5672343B81B00F3C0AA /* Image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Image.hpp; path = include/Image.hpp; sourceTree = "<group>"; };
 		9A0FA56A2343C17800F3C0AA /* Resources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Resources.hpp; path = include/Resources.hpp; sourceTree = "<group>"; };
+		9A30D2B02343E381004EF20E /* libpdfplus.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libpdfplus.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5AE59823380C8F00EACC93 /* PDF-Plus-macOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PDF-Plus-macOS"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5AE59B23380C8F00EACC93 /* example.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = example.cpp; sourceTree = "<group>"; };
 		9A5AE5A323380DF200EACC93 /* Dictionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Dictionary.hpp; path = include/Dictionary.hpp; sourceTree = "<group>"; };
@@ -65,10 +67,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9A30D2AE2343E381004EF20E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A5AE59523380C8F00EACC93 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A30D2BD2343E39D004EF20E /* libpdfplus.dylib in Frameworks */,
 				9A5AE5C5233C1DA900EACC93 /* libz.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,10 +86,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A30D2AA2343E339004EF20E /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9A5AE5BF233A95B100EACC93 /* Document.cpp */,
+				9A5AE5CB233EC49400EACC93 /* Xref.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		9A30D2AB2343E347004EF20E /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				9A5AE59B23380C8F00EACC93 /* example.cpp */,
+			);
+			name = Example;
+			sourceTree = "<group>";
+		};
 		9A5AE58F23380C8F00EACC93 = {
 			isa = PBXGroup;
 			children = (
-				9A5AE59A23380C8F00EACC93 /* PDF-Plus-X */,
+				9A30D2AB2343E347004EF20E /* Example */,
+				9A30D2AA2343E339004EF20E /* src */,
+				9A5AE59A23380C8F00EACC93 /* include */,
 				9A5AE59923380C8F00EACC93 /* Products */,
 				9A5AE5C1233C1D5E00EACC93 /* Frameworks */,
 			);
@@ -89,17 +118,17 @@
 			isa = PBXGroup;
 			children = (
 				9A5AE59823380C8F00EACC93 /* PDF-Plus-macOS */,
+				9A30D2B02343E381004EF20E /* libpdfplus.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9A5AE59A23380C8F00EACC93 /* PDF-Plus-X */ = {
+		9A5AE59A23380C8F00EACC93 /* include */ = {
 			isa = PBXGroup;
 			children = (
 				9A5AE5D9234020BE00EACC93 /* PDF_Plus.h */,
 				9A5AE5DA23402CAA00EACC93 /* Key.h */,
 				9A5AE5DB2340A6AB00EACC93 /* Util.h */,
-				9A5AE59B23380C8F00EACC93 /* example.cpp */,
 				9A5AE5A323380DF200EACC93 /* Dictionary.hpp */,
 				9A5AE5CE233F5EBD00EACC93 /* Array.hpp */,
 				9A5AE5D4233FAE5400EACC93 /* ObjectRef.hpp */,
@@ -107,7 +136,6 @@
 				9A5AE5B22339520900EACC93 /* Object.hpp */,
 				9A5AE5D723401FA200EACC93 /* IndirectObject.hpp */,
 				9A5AE5A62338102400EACC93 /* Document.hpp */,
-				9A5AE5BF233A95B100EACC93 /* Document.cpp */,
 				9A5AE5AF233829B800EACC93 /* Catalog.hpp */,
 				9A5AE5A92338271300EACC93 /* Page.hpp */,
 				9A0FA56A2343C17800F3C0AA /* Resources.hpp */,
@@ -117,9 +145,8 @@
 				9A0FA5672343B81B00F3C0AA /* Image.hpp */,
 				09445C0B233E214F000C537E /* DocumentInfo.hpp */,
 				9A5AE5C9233EC02300EACC93 /* Xref.hpp */,
-				9A5AE5CB233EC49400EACC93 /* Xref.cpp */,
 			);
-			name = "PDF-Plus-X";
+			name = include;
 			sourceTree = "<group>";
 		};
 		9A5AE5C1233C1D5E00EACC93 /* Frameworks */ = {
@@ -132,7 +159,34 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		9A30D2AC2343E381004EF20E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		9A30D2AF2343E381004EF20E /* pdfplus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A30D2B82343E381004EF20E /* Build configuration list for PBXNativeTarget "pdfplus" */;
+			buildPhases = (
+				9A30D2AC2343E381004EF20E /* Headers */,
+				9A30D2AD2343E381004EF20E /* Sources */,
+				9A30D2AE2343E381004EF20E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pdfplus;
+			productName = pdfplus;
+			productReference = 9A30D2B02343E381004EF20E /* libpdfplus.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 		9A5AE59723380C8F00EACC93 /* PDF-Plus-macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A5AE59F23380C8F00EACC93 /* Build configuration list for PBXNativeTarget "PDF-Plus-macOS" */;
@@ -157,9 +211,13 @@
 		9A5AE59023380C8F00EACC93 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Tom Albrecht";
 				TargetAttributes = {
+					9A30D2AF2343E381004EF20E = {
+						CreatedOnToolsVersion = 11.0;
+					};
 					9A5AE59723380C8F00EACC93 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -179,17 +237,25 @@
 			projectRoot = "";
 			targets = (
 				9A5AE59723380C8F00EACC93 /* PDF-Plus-macOS */,
+				9A30D2AF2343E381004EF20E /* pdfplus */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9A30D2AD2343E381004EF20E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A30D2BB2343E390004EF20E /* Document.cpp in Sources */,
+				9A30D2BC2343E390004EF20E /* Xref.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A5AE59423380C8F00EACC93 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A5AE5C0233A95B100EACC93 /* Document.cpp in Sources */,
-				9A5AE5CC233EC49400EACC93 /* Xref.cpp in Sources */,
 				9A5AE59C23380C8F00EACC93 /* example.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +263,38 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		9A30D2B92343E381004EF20E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9A30D2BA2343E381004EF20E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		9A5AE59D23380C8F00EACC93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -329,6 +427,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9A30D2B82343E381004EF20E /* Build configuration list for PBXNativeTarget "pdfplus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A30D2B92343E381004EF20E /* Debug */,
+				9A30D2BA2343E381004EF20E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9A5AE59323380C8F00EACC93 /* Build configuration list for PBXProject "PDF-Plus-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
