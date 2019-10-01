@@ -11,6 +11,20 @@
 
 #include "PDF_Plus.h"
 
+void make_class(int x, int y, std::string title, std::vector<std::string> fcs, PDF_Plus::Page *page) {
+	int h = 40+static_cast<int>(fcs.size())*15;
+	int w = 200;
+	page->contents()->drawRect(x, y, w, h);
+	page->contents()->drawText(title, x+5, y + h - 20, 15);
+	page->contents()->drawLine(x+5, y + h -25, x+5 + w-10, y+h-25);
+	
+	int i = 0;
+	for (auto& f: fcs) {
+		i++;
+		page->contents()->drawText(f, x+5, y + h - 30 - 15*i, 13);
+	}
+}
+
 /**
  Example Timetable
  */
@@ -65,8 +79,22 @@ int main(int argc, const char * argv[])
 	
 	auto page2 = std::make_shared<Page>(*doc);
 	page2->contents()->drawText("Page 2", 10, 10, 10);
-	page2->contents()->drawLine(0,0, 500,800);
-	page2->contents()->drawRect(160, 210, 110, 110);
+	page2->contents()->drawText("Class Diagram", 100, 750, 30);
+	page2->contents()->drawRect(100-10, 750-10, 5*90, 50);
+	
+	make_class(90, 600, "Array", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(90, 520, "Dictionary", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(90, 440, "Object", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(90, 360, "Document", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(90, 270, "DocumentInfo", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(90, 190, "Catalog", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(300, 600, "Page", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(300, 520, "Pages", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(300, 440, "Stream", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(300, 360, "Font", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(300, 270, "ObjectRef", {"set()", "get<Get_t>()"}, page2.get());
+	make_class(300, 190, "IndirectObject", {"set()", "get<Get_t>()"}, page2.get());
+
 	doc->addPage(page2);
 	
 	std::ofstream ofs;
