@@ -28,7 +28,7 @@ namespace PDF_Plus {
 		 */
 		Stream(const std::weak_ptr<Xref>& parent) : Object{parent}
 		{
-			_dict["Filter"] = "/FlateDecode";
+			_dict[Key::Filter] = "/FlateDecode";
 		}
         
         virtual std::size_t size() const override
@@ -108,7 +108,7 @@ namespace PDF_Plus {
 			read(streamData.str());
 		}
 		
-	private:
+	protected:
 		std::vector<std::byte> streamData;
 		
 		std::vector<std::byte> compressData(const std::vector<std::byte>& data)

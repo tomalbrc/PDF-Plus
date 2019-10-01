@@ -23,7 +23,9 @@ namespace PDF_Plus {
 		 */
 		Font(const std::weak_ptr<Xref>& parent) : Object{parent}
 		{
-			_dict["Font"] = "<</F1 <</Type /Font /Subtype /Type1 /BaseFont /Helvetica>> >>";
+			_dict[Key::Type] = "/Font";
+			_dict[Key::Subtype] = "/Type1";
+			_dict[Key::BaseFont] = "/Helvetica";
 		}
 	};
 }

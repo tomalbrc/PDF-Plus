@@ -11,17 +11,19 @@
 
 #include <cstdio>
 #include "Stream.hpp"
+#include "Key.h"
 
 namespace PDF_Plus {
 	/**
 	Images
+	PDF Reference 1.7 Section 4.8.4 "Image Dictionaries"
 	*/
 	class Image : public Stream {
 	public:
 		struct ImageInfo {
 			int width = 0;
 			int height = 0;
-			int bits_per_color = 0;
+			int bits_per_component = 0;
 		};
 		
 		/**
@@ -29,15 +31,23 @@ namespace PDF_Plus {
 		*/
 		Image(const std::weak_ptr<Xref>& parent) : Stream{parent}
 		{
-			_dict["Type"] = "XObject";
+			_dict[Key::Type] = "/XObject";
+			_dict[Key::Subtype] = "/Image";
+			_dict["Width"] = 0;
+			_dict["Height"] = 0;
+			_dict["BitsPerComponent"] = 8;
+			_dict["ColorSpace"] = "DeviceRGB";
+			
+			using namespace std::literals::string_literals;
+			read("q 132 0 0 132 45 140 cm"s + NL + "/Im1 Do Q"s); // Translate 45,140, Scale by 132
 		}
 		
 		void bytes(const std::vector<std::byte>& data) {
-			_data = data;
+			streamData = data;
 		}
 		
 		const std::vector<std::byte>& bytes() const {
-			return _data;
+			return streamData;
 		}
 		
 		void imageInfo(const ImageInfo& imageInfo) {
@@ -49,7 +59,6 @@ namespace PDF_Plus {
 		}
 		
 	private:
-		std::vector<std::byte> _data;
 		ImageInfo _iinfo;
 	};
 }

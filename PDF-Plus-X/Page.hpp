@@ -13,7 +13,7 @@
 #include "Object.hpp"
 #include "ObjectRef.hpp"
 #include "Stream.hpp"
-#include "Font.hpp"
+#include "Resources.hpp"
 
 namespace PDF_Plus {
 	/**
@@ -31,7 +31,7 @@ namespace PDF_Plus {
 			setPageSize(595, 842); // DIN A4
 			setRotate(0);
 			
-			_resources = std::make_shared<Font>(parent);
+			_resources = std::make_shared<Resources>(parent);
 			_dict[Key::Resources] = ObjectRef{_resources.get()};
 		
 			_contents = std::make_shared<Stream>(parent);
@@ -59,7 +59,7 @@ namespace PDF_Plus {
 		
 	private:
 		std::shared_ptr<Stream> _contents;
-		std::shared_ptr<Font> _resources;
+		std::shared_ptr<Resources> _resources;
 	};
 }
 
