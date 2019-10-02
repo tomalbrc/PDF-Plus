@@ -53,6 +53,7 @@
 		9A0FA5672343B81B00F3C0AA /* Image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Image.hpp; path = include/Image.hpp; sourceTree = "<group>"; };
 		9A0FA56A2343C17800F3C0AA /* Resources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Resources.hpp; path = include/Resources.hpp; sourceTree = "<group>"; };
 		9A30D2B02343E381004EF20E /* libpdfplus.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libpdfplus.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A30D2C023450AFF004EF20E /* Types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Types.hpp; path = include/Types.hpp; sourceTree = "<group>"; };
 		9A5AE59823380C8F00EACC93 /* PDF-Plus-macOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PDF-Plus-macOS"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5AE59B23380C8F00EACC93 /* example.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = example.cpp; sourceTree = "<group>"; };
 		9A5AE5A323380DF200EACC93 /* Dictionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Dictionary.hpp; path = include/Dictionary.hpp; sourceTree = "<group>"; };
@@ -72,7 +73,7 @@
 		9A5AE5D4233FAE5400EACC93 /* ObjectRef.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ObjectRef.hpp; path = include/ObjectRef.hpp; sourceTree = "<group>"; };
 		9A5AE5D723401FA200EACC93 /* IndirectObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IndirectObject.hpp; path = include/IndirectObject.hpp; sourceTree = "<group>"; };
 		9A5AE5D9234020BE00EACC93 /* PDF_Plus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PDF_Plus.h; path = include/PDF_Plus.h; sourceTree = "<group>"; };
-		9A5AE5DA23402CAA00EACC93 /* Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Key.h; path = include/Key.h; sourceTree = "<group>"; };
+		9A5AE5DA23402CAA00EACC93 /* Keys.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Keys.hpp; path = include/Keys.hpp; sourceTree = "<group>"; };
 		9A5AE5DB2340A6AB00EACC93 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Util.h; path = include/Util.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,7 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				9A5AE5D9234020BE00EACC93 /* PDF_Plus.h */,
-				9A5AE5DA23402CAA00EACC93 /* Key.h */,
+				9A5AE5DA23402CAA00EACC93 /* Keys.hpp */,
+				9A30D2C023450AFF004EF20E /* Types.hpp */,
 				9A5AE5DB2340A6AB00EACC93 /* Util.h */,
 				9A5AE5A323380DF200EACC93 /* Dictionary.hpp */,
 				9A5AE5CE233F5EBD00EACC93 /* Array.hpp */,

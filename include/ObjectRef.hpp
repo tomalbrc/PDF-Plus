@@ -24,7 +24,7 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		ObjectRef(Object* ptr) { _ptr = ptr; }
+		ObjectRef(const Object* ptr) { _ptr = ptr; }
 		
 		/**
 		 
@@ -40,7 +40,7 @@ namespace PDF_Plus {
 			return out << objr.ptr()->objectNumber() << ' ' << objr.ptr()->generationNumber() << ' ' << 'R';
 		}
 	private:
-		Object *_ptr = nullptr;
+		const Object *_ptr = nullptr;
 	};
 }
 

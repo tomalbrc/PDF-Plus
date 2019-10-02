@@ -13,6 +13,9 @@
 #include <regex>
 #include <zlib.h>
 #include "Object.hpp"
+#include "Font.hpp"
+
+#include "Types.hpp"
 
 // TODO: StreamObject that writes out Object Header + Stream data?
 
@@ -65,14 +68,14 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		void drawText(std::string text, int x, int y, int fontSize)
+		void drawText(std::string text, const std::weak_ptr<Font>& font, Point p)
 		{
 			text = escape(text);
 			
 			std::stringstream streamData;
 			streamData << NL << "BT";
-			streamData << " /F1 " << fontSize << " Tf";
-			streamData << " " << x << " " << y << " Td";
+			streamData << " /" << font.lock()->resourceName() << " " << font.lock()->properties().fontSize << " Tf";
+			streamData << " " << p.x << " " << p.y << " Td";
 			streamData << " (" << text << ")Tj";
 			streamData << " ET";
 			
@@ -82,18 +85,18 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		void drawLine(int x1, int y1, int x2, int y2)
+		void drawLine(Point p1, Point p2)
 		{
 			std::stringstream streamData;
 
-			streamData << NL << x1 << " " << y1;
+			streamData << NL << p1.x << " " << p1.y;
 			// START: x y m
 			// LINE TO: x y l
 			// CURVE: x1 y1 x2 y2 v
 			// RECT: x1 y1 x2 y2 re
 			// h = close path
 			// S = stroke path
-			streamData << " m " << x2 << " " << y2 << " l h S";
+			streamData << " m " << p2.x << " " << p2.y << " l h S";
 		
 			read(streamData.str());
 		}
@@ -101,10 +104,10 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		void drawRect(int x1, int y1, int x2, int y2)
+		void drawRect(Rect r)
 		{
 			std::stringstream streamData;
-			streamData << NL << x1 << " " << y1 << " " << x2 << " " << y2 << " re S";
+			streamData << NL << r.origin.x << " " << r.origin.y << " " << r.size.width << " " << r.size.height << " re S";
 			read(streamData.str());
 		}
 		

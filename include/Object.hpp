@@ -18,7 +18,7 @@
 #include "Array.hpp"
 #include "Dictionary.hpp"
 #include "Xref.hpp"
-#include "Key.h"
+#include "Keys.hpp"
 
 namespace PDF_Plus {
 	using MultiVariantArray = Array<int, uint64_t, ObjectRef, std::string, String, float>;

@@ -38,12 +38,18 @@ namespace PDF_Plus {
 			_dict[Key::Contents] = ObjectRef{_contents.get()};
 		}
 		
+		/**
+		 
+		 */
 		void setPageSize(int width, int height)
 		{
 			_dict[Key::MediaBox] = MultiVariantArray{0, 0, width, height};
 			_dict[Key::TrimBox] = MultiVariantArray{0, 0, width, height};
 		}
 		
+		/**
+		 
+		 */
 		void setRotate(int r)
 		{
 			_dict[Key::Rotate] = r;
@@ -52,9 +58,17 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		std::shared_ptr<Stream> contents()
+		std::shared_ptr<Stream> contents() const
 		{
 			return _contents;
+		}
+		
+		/**
+		 
+		 */
+		std::shared_ptr<Resources> resources() const
+		{
+			return _resources;
 		}
 		
 	private:

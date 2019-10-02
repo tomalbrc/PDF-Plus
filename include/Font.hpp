@@ -18,15 +18,49 @@ namespace PDF_Plus {
 	 */
 	class Font : public Object {
 	public:
+		struct Properties {
+			std::string fontName = "Helvetica";
+			int fontSize = 15;
+			int kerning = 0; // not implemented yet
+			int letterSpacing = 0; // not implemented yet
+			int wordSpacing = 0; // not implemented yet
+		};
+		
 		/**
 		 
 		 */
-		Font(const std::weak_ptr<Xref>& parent) : Object{parent}
+		Font(const std::weak_ptr<Xref>& parent, const Properties& props) : Object{parent}
 		{
+			_props = props;
+			
 			_dict[Key::Type] = "/Font";
 			_dict[Key::Subtype] = "/Type1";
-			_dict[Key::BaseFont] = "/Helvetica";
+			_dict[Key::BaseFont] = "/" + props.fontName;
+			
+			_resourceName = "F" + std::to_string(objectNumber()+1);
 		}
+		
+		/**
+		 Font size
+		 */
+		Properties properties() const {
+			return _props;
+		}
+		
+		/**
+		 Set font size
+		 */
+		void properties(const Properties& props) {
+			_props = props;
+		}
+		
+		const std::string& resourceName() const {
+			return _resourceName;
+		}
+	
+	private:
+		std::string _resourceName;
+		Properties _props;
 	};
 }
 

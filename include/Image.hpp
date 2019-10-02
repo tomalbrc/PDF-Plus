@@ -11,7 +11,7 @@
 
 #include <cstdio>
 #include "Stream.hpp"
-#include "Key.h"
+#include "Keys.hpp"
 
 namespace PDF_Plus {
 	/**
@@ -21,6 +21,7 @@ namespace PDF_Plus {
 	class Image : public Stream {
 	public:
 		struct ImageInfo {
+			std::string name;
 			int width = 0;
 			int height = 0;
 			int bits_per_component = 0;

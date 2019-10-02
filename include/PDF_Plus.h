@@ -27,5 +27,7 @@
 #include "Resources.hpp"
 
 #include "Util.h"
+#include "Keys.hpp"
+#include "Types.hpp"
 
 #endif /* PDF_Plus_h */
