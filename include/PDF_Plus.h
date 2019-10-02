@@ -14,6 +14,7 @@
 #include "ObjectRef.hpp"
 #include "IndirectObject.hpp"
 #include "Catalog.hpp"
+#include "Annotation.hpp"
 #include "Pages.hpp"
 #include "Page.hpp"
 #include "Xref.hpp"
@@ -26,8 +27,6 @@
 #include "Image.hpp"
 #include "Resources.hpp"
 
-#include "Util.h"
-#include "Keys.hpp"
 #include "Types.hpp"
 
 #endif /* PDF_Plus_h */

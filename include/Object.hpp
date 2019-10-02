@@ -21,6 +21,8 @@
 #include "Keys.hpp"
 
 namespace PDF_Plus {
+	class ObjectRef;
+	
 	using MultiVariantArray = Array<int, uint64_t, ObjectRef, std::string, String, float>;
 	using MultiVariantDict = Dictionary<int, uint64_t, ObjectRef, std::string, String, float, MultiVariantArray>;
 	

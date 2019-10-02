@@ -14,6 +14,7 @@
 #include "ObjectRef.hpp"
 #include "Stream.hpp"
 #include "Resources.hpp"
+#include "Annotation.hpp"
 
 namespace PDF_Plus {
 	/**
@@ -71,9 +72,21 @@ namespace PDF_Plus {
 			return _resources;
 		}
 		
+		void addAnnotation(const std::shared_ptr<Annotation>& annot) {
+			_annotsStrongRef.push_back(annot);
+			
+			if (!std::holds_alternative<MultiVariantArray>(_dict["Annots"])) {
+				_dict["Annots"] = MultiVariantArray{};
+			}
+			
+			std::get<MultiVariantArray>(_dict["Annots"]).append(ObjectRef{annot.get()});
+		}
+		
 	private:
 		std::shared_ptr<Stream> _contents;
 		std::shared_ptr<Resources> _resources;
+		
+		std::vector<std::shared_ptr<Annotation>> _annotsStrongRef;
 	};
 }
 
