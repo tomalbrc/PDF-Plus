@@ -15,6 +15,16 @@
 		9A5AE5C6233C1DA900EACC93 /* libz.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9A30D2BE2343EAF3004EF20E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A5AE59023380C8F00EACC93 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A30D2AF2343E381004EF20E;
+			remoteInfo = pdfplus;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		9A5AE59623380C8F00EACC93 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -199,6 +209,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9A30D2BF2343EAF3004EF20E /* PBXTargetDependency */,
 			);
 			name = "PDF-Plus-macOS";
 			productName = "PDF-Plus-X";
@@ -261,6 +272,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A30D2BF2343EAF3004EF20E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A30D2AF2343E381004EF20E /* pdfplus */;
+			targetProxy = 9A30D2BE2343EAF3004EF20E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9A30D2B92343E381004EF20E /* Debug */ = {
