@@ -24,6 +24,9 @@ namespace PDF_Plus {
 	 */
 	class Xref {
 	public:
+		using iterator = std::vector<Object*>::iterator;
+		using const_iterator = std::vector<Object*>::const_iterator;
+
 		/**
 		
 		*/
@@ -37,19 +40,15 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		auto begin() const
-		{
-			return _objs.begin();
-		}
-		
+		const_iterator begin() const;
+		iterator begin();
+
 		/**
 		 
 		 */
-		auto end() const
-		{
-			return _objs.end();
-		}
-		
+		const_iterator end() const;
+		iterator end();
+
 		/**
 		 
 		 */

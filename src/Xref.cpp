@@ -49,4 +49,20 @@ namespace PDF_Plus {
 		out << off + headerOffset << '\n'; // Directly After Header
 		return out;
 	}
+	
+	Xref::const_iterator Xref::begin() const {
+		return _objs.begin();
+	}
+	
+	Xref::const_iterator Xref::end() const {
+		return _objs.end();
+	}
+	
+	Xref::iterator Xref::begin() {
+		return _objs.begin();
+	}
+	
+	Xref::iterator Xref::end() {
+		return _objs.end();
+	}
 }
