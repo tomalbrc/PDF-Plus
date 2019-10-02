@@ -44,19 +44,24 @@ int main(int argc, const char * argv[])
 {
 	using namespace PDF_Plus;
 	
-	auto doc = std::make_unique<Document>(Document::Version{"1.6"});
+	auto doc = std::make_unique<Document>("Example Document");
 	
+	auto bigfont = std::make_shared<Font>(*doc, Font::Properties{
+		.fontSize = 25
+	});
+	
+	auto font = std::make_shared<Font>(*doc, Font::Properties{
+		.fontSize = 14,
+		.fontName = "Courier"
+	});
+		
 	auto page = std::make_shared<Page>(*doc);
-	page->contents()->drawText("Page 1", 10, 10, 10);
-	page->contents()->drawText("Hello, world!", 100, 300, 30);
-	page->contents()->drawRect(10, 10, 110, 110);
+	page->resources()->addFont(bigfont);
+	page->resources()->addFont(font);
+	page->contents()->drawText("Page 1", font, Point{10, 10});
+	page->contents()->drawText("Timetable", bigfont, Point{100, 750});
 	doc->addPage(page);
-	
-	auto page2 = std::make_shared<Page>(*doc);
-	page2->contents()->drawText("Page 2", 10, 10, 10);
-	page2->contents()->drawLine(0,0, 500,800);
-	doc->addPage(page2);
-	
+		
 	std::ofstream ofs;
 	ofs.open("/tmp/pdfplus.pdf", std::ios::binary);
 	std::cout << *doc;
