@@ -40,6 +40,13 @@ namespace PDF_Plus::Key {
 	// Font
 	STR_KEY(BaseFont);
 	
+	// Image
+	STR_KEY(Width);
+	STR_KEY(Height);
+	STR_KEY(BitsPerComponent);
+	STR_KEY(ColorSpace);
+
+	
 	// Stream
 	STR_KEY(Filter);
 }
