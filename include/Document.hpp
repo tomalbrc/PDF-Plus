@@ -27,12 +27,10 @@ namespace PDF_Plus {
 	 */
 	class Document {
 	public:
-		using Version = std::string;
-		
 		/**
 		 
 		 */
-		Document(const Version& docVersion);
+		Document(const std::string& title);
 		
 		/**
 		 
@@ -68,7 +66,6 @@ namespace PDF_Plus {
 		
 	private:
 		std::size_t _headerOffset = 0;
-		Version _docVersion;
         std::unique_ptr<Catalog> _catalog;
 		std::unique_ptr<DocumentInfo> _info;
 		std::shared_ptr<Xref> _xref;

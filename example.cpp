@@ -81,7 +81,7 @@ int main(int argc, const char * argv[])
 {
 	using namespace PDF_Plus;
 	
-	auto doc = std::make_unique<Document>(Document::Version{"1.6"});
+	auto doc = std::make_unique<Document>("Example Document");
 	
 	auto bigfont = std::make_shared<Font>(*doc, Font::Properties{
 		.fontSize = 25

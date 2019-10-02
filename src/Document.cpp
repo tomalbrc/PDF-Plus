@@ -13,13 +13,12 @@
 
 namespace PDF_Plus {
 	
-	Document::Document(const Version& docVersion)
+	Document::Document(const std::string& title)
 	{
 		_xref = std::make_shared<Xref>();
 
-		_docVersion = docVersion;
 		_catalog = std::make_unique<Catalog>(_xref);
-		_info = std::make_unique<DocumentInfo>(_xref, "Demo PDF");
+		_info = std::make_unique<DocumentInfo>(_xref, title);
 
 		_headerOffset = generateHeader().length();
 	}
@@ -38,6 +37,7 @@ namespace PDF_Plus {
 	std::ostream& Document::write(std::ostream& out) const
 	{
 		const auto NL = '\n';
+	
 		out << generateHeader();
 		
 		// Write every object
@@ -67,7 +67,7 @@ namespace PDF_Plus {
 	std::string Document::generateHeader() const
 	{
 		std::stringstream out;
-		out << "%PDF-" << _docVersion << '\n';
+		out << "%PDF-" << "1.7" << '\n';
 		// Signal to readers that this file contains binary data
 		out << "%" << (char)0xE2 << (char)0xE3 << (char)0xCF << (char)0xD3 << '\n';
 		return out.str();
