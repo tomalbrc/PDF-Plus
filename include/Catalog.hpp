@@ -30,6 +30,8 @@ namespace PDF_Plus {
 			_dict["Type"] = "/Catalog";
 			_pages = std::make_shared<Pages>(parent);
 			_dict["Pages"] = ObjectRef{_pages.get()};
+		
+			_dict["Extensions"] = "<</ADBE <</BaseVersion /1.7 /ExtensionLevel 3>> >>";
 		}
 		
 		/**
