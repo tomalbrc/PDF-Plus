@@ -10,8 +10,11 @@
 		9A30D2BB2343E390004EF20E /* Document.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5BF233A95B100EACC93 /* Document.cpp */; };
 		9A30D2BC2343E390004EF20E /* Xref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE5CB233EC49400EACC93 /* Xref.cpp */; };
 		9A30D2BD2343E39D004EF20E /* libpdfplus.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A30D2B02343E381004EF20E /* libpdfplus.dylib */; };
+		9A30D2C623451DFF004EF20E /* lodepng.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A30D2C423451DFF004EF20E /* lodepng.h */; };
+		9A30D2C723451DFF004EF20E /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A30D2C523451DFF004EF20E /* lodepng.cpp */; };
+		9A30D2C823451E03004EF20E /* Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A30D2C123451CC8004EF20E /* Stream.cpp */; };
+		9A30D2CA23451E28004EF20E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A30D2C923451E28004EF20E /* libz.tbd */; };
 		9A5AE59C23380C8F00EACC93 /* example.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE59B23380C8F00EACC93 /* example.cpp */; };
-		9A5AE5C5233C1DA900EACC93 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */; };
 		9A5AE5C6233C1DA900EACC93 /* libz.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -54,6 +57,10 @@
 		9A0FA56A2343C17800F3C0AA /* Resources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Resources.hpp; path = include/Resources.hpp; sourceTree = "<group>"; };
 		9A30D2B02343E381004EF20E /* libpdfplus.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libpdfplus.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A30D2C023450AFF004EF20E /* Types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Types.hpp; path = include/Types.hpp; sourceTree = "<group>"; };
+		9A30D2C123451CC8004EF20E /* Stream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Stream.cpp; path = src/Stream.cpp; sourceTree = "<group>"; };
+		9A30D2C423451DFF004EF20E /* lodepng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lodepng.h; sourceTree = "<group>"; };
+		9A30D2C523451DFF004EF20E /* lodepng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lodepng.cpp; sourceTree = "<group>"; };
+		9A30D2C923451E28004EF20E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9A5AE59823380C8F00EACC93 /* PDF-Plus-macOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PDF-Plus-macOS"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5AE59B23380C8F00EACC93 /* example.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = example.cpp; sourceTree = "<group>"; };
 		9A5AE5A323380DF200EACC93 /* Dictionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Dictionary.hpp; path = include/Dictionary.hpp; sourceTree = "<group>"; };
@@ -82,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A30D2CA23451E28004EF20E /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +98,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A30D2BD2343E39D004EF20E /* libpdfplus.dylib in Frameworks */,
-				9A5AE5C5233C1DA900EACC93 /* libz.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				9A5AE5BF233A95B100EACC93 /* Document.cpp */,
+				9A30D2C123451CC8004EF20E /* Stream.cpp */,
 				9A5AE5CB233EC49400EACC93 /* Xref.cpp */,
 			);
 			name = src;
@@ -114,9 +122,19 @@
 			name = Example;
 			sourceTree = "<group>";
 		};
+		9A30D2C323451DFF004EF20E /* lodepng */ = {
+			isa = PBXGroup;
+			children = (
+				9A30D2C423451DFF004EF20E /* lodepng.h */,
+				9A30D2C523451DFF004EF20E /* lodepng.cpp */,
+			);
+			path = lodepng;
+			sourceTree = "<group>";
+		};
 		9A5AE58F23380C8F00EACC93 = {
 			isa = PBXGroup;
 			children = (
+				9A30D2C323451DFF004EF20E /* lodepng */,
 				9A30D2AB2343E347004EF20E /* Example */,
 				9A30D2AA2343E339004EF20E /* src */,
 				9A5AE59A23380C8F00EACC93 /* include */,
@@ -164,6 +182,7 @@
 		9A5AE5C1233C1D5E00EACC93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A30D2C923451E28004EF20E /* libz.tbd */,
 				9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */,
 			);
 			name = Frameworks;
@@ -176,6 +195,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A30D2C623451DFF004EF20E /* lodepng.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +280,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A30D2C723451DFF004EF20E /* lodepng.cpp in Sources */,
 				9A30D2BB2343E390004EF20E /* Document.cpp in Sources */,
 				9A30D2BC2343E390004EF20E /* Xref.cpp in Sources */,
+				9A30D2C823451E03004EF20E /* Stream.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

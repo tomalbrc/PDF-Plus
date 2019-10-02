@@ -91,12 +91,16 @@ int main(int argc, const char * argv[])
 		.fontName = "Courier"
 	});
 	
+	auto image = std::make_shared<Image>(*doc, "/Users/tomalbrecht/Desktop/shrimp.png");
+	
 	auto page = std::make_shared<Page>(*doc);
 	page->resources()->addFont(bigfont);
 	page->resources()->addFont(font);
+	page->resources()->addImage(image);
 	page->contents()->drawText("Page 1", font, Point{10, 10});
 	page->contents()->drawText("Timetable", bigfont, Point{100, 750});
 	page->contents()->drawRect(Rect{100-10, 750-10, 450, 50});
+	page->contents()->drawImage(image);
 	make_table(font, page.get());
 	doc->addPage(page);
 	

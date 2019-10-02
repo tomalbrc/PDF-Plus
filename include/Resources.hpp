@@ -63,8 +63,6 @@ namespace PDF_Plus {
 	private:
 		Dictionary<ObjectRef> _fonts; // references to font objects
 		Dictionary<ObjectRef> _images; // references to image xobjects
-		
-		std::shared_ptr<Font> baseFont;
 	};
 }
 
