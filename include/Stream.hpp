@@ -42,7 +42,9 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		void drawText(std::string text, const std::weak_ptr<Font>& font, Point p);
+		void drawText(std::string text,
+					  const std::weak_ptr<Font>& font,
+					  Point position);
 		
 		/**
 		 
@@ -57,7 +59,10 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		void drawImage(const std::weak_ptr<Image>& image);
+		void drawImage(const std::weak_ptr<Image>& image,
+					   Point pos,
+					   Size dim);
+		
 		
 	protected:
 		std::vector<std::byte> streamData;

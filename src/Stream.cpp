@@ -95,10 +95,15 @@ namespace PDF_Plus {
 		read(streamData.str());
 	}
 	
-	void Stream::drawImage(const std::weak_ptr<Image>& image) {
+	void Stream::drawImage(const std::weak_ptr<Image>& image, Point pos, Size dim) {
 		std::stringstream streamData;
-		streamData << NL << "q 132 0 0 132 45 140 cm " << "/" << image.lock()->imageInfo().name << " Do Q";
-		read(streamData.str()); // Translate 45,140, Scale by 132
+		
+		streamData << NL
+		<< "q " << dim.width << " 0 0 " << dim.height << " "
+		<< pos.x << " " << pos.y << " cm "
+		<< "/" << image.lock()->imageInfo().name << " Do Q";
+		
+		read(streamData.str()); // Translate 45,140, Scale to 132x132
 	}
 	
 	/// MARK: Private
