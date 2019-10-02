@@ -18,6 +18,12 @@ namespace PDF_Plus {
 	struct Point {
 		int x;
 		int y;
+		
+		Point operator*(float rhs) const {
+			auto s = *this;
+			s.x *= rhs; s.y *= rhs;
+			return s;
+		}
 	};
 	
 	/**
@@ -26,6 +32,12 @@ namespace PDF_Plus {
 	struct Size {
 		int width;
 		int height;
+		
+		Size operator*(float rhs) const {
+			auto s = *this;
+			s.width *= rhs; s.height *= rhs;
+			return s;
+		}
 	};
 	
 	/**
@@ -34,6 +46,12 @@ namespace PDF_Plus {
 	struct Rect {
 		Point origin;
 		Size size;
+		
+		Rect operator*(float rhs) const {
+			auto s = *this;
+			s.origin = s.origin * rhs; s.size = s.size * rhs;
+			return s;
+		}
 	};
 }
 
