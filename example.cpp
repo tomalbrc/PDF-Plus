@@ -107,6 +107,9 @@ int main(int argc, const char * argv[])
 	auto page2 = std::make_shared<Page>(*doc);
 	page2->resources()->addFont(bigfont);
 	page2->resources()->addFont(font);
+	page2->resources()->addImage(image);
+	page2->contents()->drawImage(image, Point{100, 500}, image->imageInfo().size*1.f);
+
 	page2->contents()->drawText("Page 2", font, Point{10, 10});
 	page2->contents()->drawText("Class Diagram", bigfont, Point{100, 755});
 	page2->contents()->drawRect(Rect{100-10, 750-10, 410, 50});

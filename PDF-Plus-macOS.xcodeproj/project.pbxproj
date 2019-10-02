@@ -137,11 +137,11 @@
 		9A5AE58F23380C8F00EACC93 = {
 			isa = PBXGroup;
 			children = (
-				9A30D2C323451DFF004EF20E /* lodepng */,
 				9A30D2AB2343E347004EF20E /* Example */,
 				9A30D2AA2343E339004EF20E /* src */,
 				9A5AE59A23380C8F00EACC93 /* include */,
 				9A5AE59923380C8F00EACC93 /* Products */,
+				9A30D2C323451DFF004EF20E /* lodepng */,
 				9A5AE5C1233C1D5E00EACC93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
