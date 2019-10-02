@@ -37,6 +37,12 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
+		
+		virtual ~Document() = default;
+		
+		/**
+		 
+		 */
 		void addPage(const std::shared_ptr<Page>& p);
 		
 		/**
