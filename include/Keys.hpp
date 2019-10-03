@@ -26,7 +26,9 @@ namespace PDF_Plus::Key {
 	STR_KEY(MediaBox);
 	STR_KEY(TrimBox);
 	STR_KEY(CropBox);
+	STR_KEY(Rect);
 	STR_KEY(Contents);
+	STR_KEY(Pages);
 	STR_KEY(Resources);
 	STR_KEY(Rotate);
 	STR_KEY(Kids);

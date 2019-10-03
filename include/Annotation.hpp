@@ -26,7 +26,7 @@ namespace PDF_Plus {
 		{
 			_dict[Key::Type] = "/Annot";
 			_dict[Key::Subtype] = "/Text";
-			_dict["Rect"] = MultiVariantArray{200, 100, 400, 300};
+			_dict[Key::Rect] = MultiVariantArray{200, 100, 400, 300};
 
 			_dict[Key::Contents] = String{"Hello, world! This is an Annotation"};
 		}
