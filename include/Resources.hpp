@@ -49,20 +49,24 @@ namespace PDF_Plus {
 		/**
 		 
 		 */
-		void addImage(const std::weak_ptr<Image>& image) {
-			_images[image.lock()->imageInfo().name] = ObjectRef{image.lock().get()};
+		void addImage(const std::shared_ptr<Image>& image) {
+			_images[image->imageInfo().name] = ObjectRef{image.get()};
+			_resStrongRef.push_back(image);
 		}
 		
 		/**
 		 
 		 */
-		void addFont(const std::weak_ptr<Font>& font) {
-			_fonts[font.lock()->resourceName()] = ObjectRef{font.lock().get()};
+		void addFont(const std::shared_ptr<Font>& font) {
+			_fonts[font->resourceName()] = ObjectRef{font.get()};
+			_resStrongRef.push_back(font);
 		}
 
 	private:
 		Dictionary<ObjectRef> _fonts; // references to font objects
 		Dictionary<ObjectRef> _images; // references to image xobjects
+		
+		std::vector<std::shared_ptr<Object>> _resStrongRef;
 	};
 }
 

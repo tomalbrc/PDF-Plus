@@ -14,6 +14,7 @@
 #include "ObjectRef.hpp"
 #include "Pages.hpp"
 #include "Page.hpp"
+#include "Keys.hpp"
 
 namespace PDF_Plus {
 	/**
@@ -27,9 +28,9 @@ namespace PDF_Plus {
 		Catalog(const std::weak_ptr<Xref>& parent) :
 			Object{parent}
 		{
-			_dict["Type"] = "/Catalog";
+			_dict[Key::Type] = "/Catalog";
 			_pages = std::make_shared<Pages>(parent);
-			_dict["Pages"] = ObjectRef{_pages.get()};
+			_dict[Key::Pages] = ObjectRef{_pages.get()};
 		
 			_dict["Extensions"] = "<</ADBE <</BaseVersion /1.7 /ExtensionLevel 3>> >>";
 		}

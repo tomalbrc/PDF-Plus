@@ -92,11 +92,13 @@ int main(int argc, const char * argv[])
 	});
 	
 	auto image = std::make_shared<Image>(*doc, "parrot-portrait-karen-arnold.png");
-	
+	auto ann = std::make_shared<Annotation>(*doc);
+
 	auto page = std::make_shared<Page>(*doc);
 	page->resources()->addFont(bigfont);
 	page->resources()->addFont(font);
 	page->resources()->addImage(image);
+	page->addAnnotation(ann);
 	page->contents()->drawText("Page 1", font, Point{10, 10});
 	page->contents()->drawText("Timetable", bigfont, Point{100, 750});
 	page->contents()->drawRect(Rect{100-10, 750-10, 450, 50});
