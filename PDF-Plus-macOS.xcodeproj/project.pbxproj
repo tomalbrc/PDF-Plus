@@ -70,13 +70,13 @@
 		9A30D2CD23455866004EF20E /* Annotation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Annotation.cpp; path = src/Annotation.cpp; sourceTree = "<group>"; wrapsLines = 0; };
 		9A30D2CF2345588A004EF20E /* Annotation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Annotation.hpp; path = include/Annotation.hpp; sourceTree = "<group>"; };
 		9A30D2D123476B6D004EF20E /* 3DView.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = 3DView.cpp; path = src/3DView.cpp; sourceTree = "<group>"; };
-		9A30D2D223476B6D004EF20E /* 3DView.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = 3DView.hpp; path = src/3DView.hpp; sourceTree = "<group>"; wrapsLines = 0; };
+		9A30D2D223476B6D004EF20E /* 3DView.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = 3DView.hpp; path = include/3DView.hpp; sourceTree = "<group>"; wrapsLines = 0; };
 		9A30D2F22347C63C004EF20E /* 3DStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = 3DStream.cpp; path = src/3DStream.cpp; sourceTree = "<group>"; };
-		9A30D2F32347C63C004EF20E /* 3DStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = 3DStream.hpp; path = src/3DStream.hpp; sourceTree = "<group>"; wrapsLines = 0; };
+		9A30D2F32347C63C004EF20E /* 3DStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = 3DStream.hpp; path = include/3DStream.hpp; sourceTree = "<group>"; wrapsLines = 0; };
 		9A30D2F72347DB93004EF20E /* Annotation3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Annotation3D.cpp; path = src/Annotation3D.cpp; sourceTree = "<group>"; };
-		9A30D2F82347DB93004EF20E /* Annotation3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Annotation3D.hpp; path = src/Annotation3D.hpp; sourceTree = "<group>"; };
+		9A30D2F82347DB93004EF20E /* Annotation3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Annotation3D.hpp; path = include/Annotation3D.hpp; sourceTree = "<group>"; };
 		9A5AE59823380C8F00EACC93 /* PDF-Plus-macOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PDF-Plus-macOS"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A5AE59B23380C8F00EACC93 /* example.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = example.cpp; sourceTree = "<group>"; };
+		9A5AE59B23380C8F00EACC93 /* example.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = example.cpp; path = example/example.cpp; sourceTree = "<group>"; };
 		9A5AE5A323380DF200EACC93 /* Dictionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Dictionary.hpp; path = include/Dictionary.hpp; sourceTree = "<group>"; };
 		9A5AE5A62338102400EACC93 /* Document.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Document.hpp; path = include/Document.hpp; sourceTree = "<group>"; };
 		9A5AE5A92338271300EACC93 /* Page.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Page.hpp; path = include/Page.hpp; sourceTree = "<group>"; wrapsLines = 0; };
@@ -124,6 +124,8 @@
 				9A30D2C123451CC8004EF20E /* Stream.cpp */,
 				9A30D2CB23453865004EF20E /* Image.cpp */,
 				9A5AE5CB233EC49400EACC93 /* Xref.cpp */,
+				9A30D2CD23455866004EF20E /* Annotation.cpp */,
+				9A30D2F72347DB93004EF20E /* Annotation3D.cpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -197,9 +199,7 @@
 				9A0FA56A2343C17800F3C0AA /* Resources.hpp */,
 				9A5AE5B523395D5500EACC93 /* Pages.hpp */,
 				9A5AE5BA2339ACD300EACC93 /* Stream.hpp */,
-				9A30D2CD23455866004EF20E /* Annotation.cpp */,
 				9A30D2CF2345588A004EF20E /* Annotation.hpp */,
-				9A30D2F72347DB93004EF20E /* Annotation3D.cpp */,
 				9A30D2F82347DB93004EF20E /* Annotation3D.hpp */,
 				9A5AE5BC233A8FC000EACC93 /* Font.hpp */,
 				9A0FA5672343B81B00F3C0AA /* Image.hpp */,
