@@ -79,7 +79,8 @@ namespace PDF_Plus {
 				_dict["Annots"] = MultiVariantArray{};
 			}
 			
-			std::get<MultiVariantArray>(_dict["Annots"]).append(ObjectRef{annot.get()});
+			auto& annots = std::get<MultiVariantArray>(_dict["Annots"]);
+			annots.append(ObjectRef{annot.get()});
 		}
 		
 	private:
