@@ -83,7 +83,7 @@ namespace PDF_Plus {
 		 does not match with the type of the item at idx
 		 */
 		template <class Get_t>
-		Get_t& get(const std::size_t& idx) {
+		const Get_t& get(const std::size_t& idx) const {
 			static_assert(VariantHelper::isVariantMember<Get_t, 	std::variant<Ts...>>::value, "type not in list");
 			return std::get<Get_t>(_data.at(idx));
 		}

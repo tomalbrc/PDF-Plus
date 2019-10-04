@@ -13,6 +13,7 @@
 #include "ObjectRef.hpp"
 
 #include "3DStream.hpp"
+#include "3DView.hpp"
 
 namespace PDF_Plus {
 	/**
@@ -27,6 +28,7 @@ namespace PDF_Plus {
 		
 	private:
 		std::unique_ptr<_3DStream> _3dd;
+		std::unique_ptr<_3DView> _3dv;
 	};
 }
 

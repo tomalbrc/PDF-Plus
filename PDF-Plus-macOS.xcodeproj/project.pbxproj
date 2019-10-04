@@ -75,6 +75,9 @@
 		9A30D2F32347C63C004EF20E /* 3DStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = 3DStream.hpp; path = include/3DStream.hpp; sourceTree = "<group>"; wrapsLines = 0; };
 		9A30D2F72347DB93004EF20E /* Annotation3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Annotation3D.cpp; path = src/Annotation3D.cpp; sourceTree = "<group>"; };
 		9A30D2F82347DB93004EF20E /* Annotation3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Annotation3D.hpp; path = include/Annotation3D.hpp; sourceTree = "<group>"; };
+		9A30D2FB2347E2DA004EF20E /* parrot-portrait-karen-arnold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "parrot-portrait-karen-arnold.png"; path = "example/parrot-portrait-karen-arnold.png"; sourceTree = "<group>"; };
+		9A30D2FC2347E2DB004EF20E /* teapot.u3d */ = {isa = PBXFileReference; lastKnownFileType = file; name = teapot.u3d; path = example/teapot.u3d; sourceTree = "<group>"; };
+		9A30D2FD2347E3DE004EF20E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9A5AE59823380C8F00EACC93 /* PDF-Plus-macOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PDF-Plus-macOS"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5AE59B23380C8F00EACC93 /* example.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = example.cpp; path = example/example.cpp; sourceTree = "<group>"; };
 		9A5AE5A323380DF200EACC93 /* Dictionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Dictionary.hpp; path = include/Dictionary.hpp; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				9A5AE59B23380C8F00EACC93 /* example.cpp */,
+				9A30D2FB2347E2DA004EF20E /* parrot-portrait-karen-arnold.png */,
+				9A30D2FC2347E2DB004EF20E /* teapot.u3d */,
 			);
 			name = Example;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 		9A5AE58F23380C8F00EACC93 = {
 			isa = PBXGroup;
 			children = (
+				9A30D2FD2347E3DE004EF20E /* README.md */,
 				9A30D2AB2343E347004EF20E /* Example */,
 				9A30D2AA2343E339004EF20E /* src */,
 				9A5AE59A23380C8F00EACC93 /* include */,
