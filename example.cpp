@@ -92,7 +92,7 @@ int main(int argc, const char * argv[])
 	});
 	
 	auto image = std::make_shared<Image>(*doc, "parrot-portrait-karen-arnold.png");
-	auto ann = std::make_shared<Annotation>(*doc);
+	auto ann = std::make_shared<Annotation3D>(*doc, "teapot.u3d");
 
 	auto page = std::make_shared<Page>(*doc);
 	page->resources()->addFont(bigfont);

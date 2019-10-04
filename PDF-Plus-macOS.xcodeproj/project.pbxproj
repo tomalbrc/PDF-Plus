@@ -16,8 +16,12 @@
 		9A30D2CA23451E28004EF20E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A30D2C923451E28004EF20E /* libz.tbd */; };
 		9A30D2CC23453865004EF20E /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A30D2CB23453865004EF20E /* Image.cpp */; };
 		9A30D2CE23455866004EF20E /* Annotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A30D2CD23455866004EF20E /* Annotation.cpp */; };
+		9A30D2F42347C63C004EF20E /* 3DStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A30D2F22347C63C004EF20E /* 3DStream.cpp */; };
+		9A30D2F52347C63C004EF20E /* 3DStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9A30D2F32347C63C004EF20E /* 3DStream.hpp */; };
+		9A30D2F62347C640004EF20E /* 3DView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A30D2D123476B6D004EF20E /* 3DView.cpp */; };
+		9A30D2F92347DB93004EF20E /* Annotation3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A30D2F72347DB93004EF20E /* Annotation3D.cpp */; };
+		9A30D2FA2347DB93004EF20E /* Annotation3D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9A30D2F82347DB93004EF20E /* Annotation3D.hpp */; };
 		9A5AE59C23380C8F00EACC93 /* example.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE59B23380C8F00EACC93 /* example.cpp */; };
-		9A5AE5C6233C1DA900EACC93 /* libz.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +50,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9A5AE5C6233C1DA900EACC93 /* libz.1.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,20 +67,25 @@
 		9A30D2C523451DFF004EF20E /* lodepng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lodepng.cpp; sourceTree = "<group>"; };
 		9A30D2C923451E28004EF20E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9A30D2CB23453865004EF20E /* Image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Image.cpp; path = src/Image.cpp; sourceTree = "<group>"; };
-		9A30D2CD23455866004EF20E /* Annotation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Annotation.cpp; path = src/Annotation.cpp; sourceTree = "<group>"; };
+		9A30D2CD23455866004EF20E /* Annotation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Annotation.cpp; path = src/Annotation.cpp; sourceTree = "<group>"; wrapsLines = 0; };
 		9A30D2CF2345588A004EF20E /* Annotation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Annotation.hpp; path = include/Annotation.hpp; sourceTree = "<group>"; };
+		9A30D2D123476B6D004EF20E /* 3DView.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = 3DView.cpp; path = src/3DView.cpp; sourceTree = "<group>"; };
+		9A30D2D223476B6D004EF20E /* 3DView.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = 3DView.hpp; path = src/3DView.hpp; sourceTree = "<group>"; wrapsLines = 0; };
+		9A30D2F22347C63C004EF20E /* 3DStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = 3DStream.cpp; path = src/3DStream.cpp; sourceTree = "<group>"; };
+		9A30D2F32347C63C004EF20E /* 3DStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = 3DStream.hpp; path = src/3DStream.hpp; sourceTree = "<group>"; wrapsLines = 0; };
+		9A30D2F72347DB93004EF20E /* Annotation3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Annotation3D.cpp; path = src/Annotation3D.cpp; sourceTree = "<group>"; };
+		9A30D2F82347DB93004EF20E /* Annotation3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Annotation3D.hpp; path = src/Annotation3D.hpp; sourceTree = "<group>"; };
 		9A5AE59823380C8F00EACC93 /* PDF-Plus-macOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PDF-Plus-macOS"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5AE59B23380C8F00EACC93 /* example.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = example.cpp; sourceTree = "<group>"; };
 		9A5AE5A323380DF200EACC93 /* Dictionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Dictionary.hpp; path = include/Dictionary.hpp; sourceTree = "<group>"; };
 		9A5AE5A62338102400EACC93 /* Document.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Document.hpp; path = include/Document.hpp; sourceTree = "<group>"; };
-		9A5AE5A92338271300EACC93 /* Page.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Page.hpp; path = include/Page.hpp; sourceTree = "<group>"; };
+		9A5AE5A92338271300EACC93 /* Page.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Page.hpp; path = include/Page.hpp; sourceTree = "<group>"; wrapsLines = 0; };
 		9A5AE5AF233829B800EACC93 /* Catalog.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Catalog.hpp; path = include/Catalog.hpp; sourceTree = "<group>"; };
 		9A5AE5B22339520900EACC93 /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Object.hpp; path = include/Object.hpp; sourceTree = "<group>"; };
 		9A5AE5B523395D5500EACC93 /* Pages.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Pages.hpp; path = include/Pages.hpp; sourceTree = "<group>"; };
 		9A5AE5BA2339ACD300EACC93 /* Stream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Stream.hpp; path = include/Stream.hpp; sourceTree = "<group>"; };
 		9A5AE5BC233A8FC000EACC93 /* Font.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Font.hpp; path = include/Font.hpp; sourceTree = "<group>"; };
 		9A5AE5BF233A95B100EACC93 /* Document.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Document.cpp; path = src/Document.cpp; sourceTree = "<group>"; };
-		9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		9A5AE5C9233EC02300EACC93 /* Xref.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Xref.hpp; path = include/Xref.hpp; sourceTree = "<group>"; };
 		9A5AE5CB233EC49400EACC93 /* Xref.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Xref.cpp; path = src/Xref.cpp; sourceTree = "<group>"; };
 		9A5AE5CE233F5EBD00EACC93 /* Array.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Array.hpp; path = include/Array.hpp; sourceTree = "<group>"; };
@@ -137,6 +145,17 @@
 			path = lodepng;
 			sourceTree = "<group>";
 		};
+		9A30D2D023476B45004EF20E /* 3D */ = {
+			isa = PBXGroup;
+			children = (
+				9A30D2D123476B6D004EF20E /* 3DView.cpp */,
+				9A30D2D223476B6D004EF20E /* 3DView.hpp */,
+				9A30D2F22347C63C004EF20E /* 3DStream.cpp */,
+				9A30D2F32347C63C004EF20E /* 3DStream.hpp */,
+			);
+			name = 3D;
+			sourceTree = "<group>";
+		};
 		9A5AE58F23380C8F00EACC93 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +167,7 @@
 				9A5AE5C1233C1D5E00EACC93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			wrapsLines = 0;
 		};
 		9A5AE59923380C8F00EACC93 /* Products */ = {
 			isa = PBXGroup;
@@ -179,10 +199,13 @@
 				9A5AE5BA2339ACD300EACC93 /* Stream.hpp */,
 				9A30D2CD23455866004EF20E /* Annotation.cpp */,
 				9A30D2CF2345588A004EF20E /* Annotation.hpp */,
+				9A30D2F72347DB93004EF20E /* Annotation3D.cpp */,
+				9A30D2F82347DB93004EF20E /* Annotation3D.hpp */,
 				9A5AE5BC233A8FC000EACC93 /* Font.hpp */,
 				9A0FA5672343B81B00F3C0AA /* Image.hpp */,
 				09445C0B233E214F000C537E /* DocumentInfo.hpp */,
 				9A5AE5C9233EC02300EACC93 /* Xref.hpp */,
+				9A30D2D023476B45004EF20E /* 3D */,
 			);
 			name = include;
 			sourceTree = "<group>";
@@ -191,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				9A30D2C923451E28004EF20E /* libz.tbd */,
-				9A5AE5C4233C1DA900EACC93 /* libz.1.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,7 +225,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A30D2FA2347DB93004EF20E /* Annotation3D.hpp in Headers */,
 				9A30D2C623451DFF004EF20E /* lodepng.h in Headers */,
+				9A30D2F52347C63C004EF20E /* 3DStream.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,10 +312,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A30D2F42347C63C004EF20E /* 3DStream.cpp in Sources */,
 				9A30D2C723451DFF004EF20E /* lodepng.cpp in Sources */,
+				9A30D2F92347DB93004EF20E /* Annotation3D.cpp in Sources */,
 				9A30D2BB2343E390004EF20E /* Document.cpp in Sources */,
 				9A30D2BC2343E390004EF20E /* Xref.cpp in Sources */,
 				9A30D2C823451E03004EF20E /* Stream.cpp in Sources */,
+				9A30D2F62347C640004EF20E /* 3DView.cpp in Sources */,
 				9A30D2CE23455866004EF20E /* Annotation.cpp in Sources */,
 				9A30D2CC23453865004EF20E /* Image.cpp in Sources */,
 			);
