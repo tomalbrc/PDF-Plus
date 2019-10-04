@@ -15,6 +15,7 @@
 #include "IndirectObject.hpp"
 #include "Catalog.hpp"
 #include "Annotation.hpp"
+#include "Annotation3D.hpp"
 #include "Pages.hpp"
 #include "Page.hpp"
 #include "Xref.hpp"
