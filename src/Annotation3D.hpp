@@ -9,8 +9,7 @@
 #ifndef Annotation3D_hpp
 #define Annotation3D_hpp
 
-#include "Object.hpp"
-#include "Array.hpp"
+#include "Annotation.hpp"
 #include "ObjectRef.hpp"
 
 #include "3DStream.hpp"
@@ -19,7 +18,7 @@ namespace PDF_Plus {
 	/**
 	 3D Annotation dictionay
 	 */
-	class Annotation3D : public Object {
+	class Annotation3D : public Annotation {
 	public:
 		/**
 		 Ctor with document parent and path to U3D file

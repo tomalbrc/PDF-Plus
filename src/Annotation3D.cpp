@@ -9,7 +9,7 @@
 #include "Annotation3D.hpp"
 
 namespace PDF_Plus {
-	Annotation3D::Annotation3D(const std::weak_ptr<Xref>& parent, const std::string& file) : Object{parent}
+	Annotation3D::Annotation3D(const std::weak_ptr<Xref>& parent, const std::string& file) : Annotation{parent}
 	{
 		_dict[Key::Type] = "/Annot";
 		_dict[Key::Subtype] = "/3D";
