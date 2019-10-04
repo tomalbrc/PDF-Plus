@@ -22,14 +22,7 @@ namespace PDF_Plus {
 		/**
 		 Ctor with document xref
 		 */
-		Annotation(const std::weak_ptr<Xref>& parent) : Object{parent}
-		{
-			_dict[Key::Type] = "/Annot";
-			_dict[Key::Subtype] = "/Text";
-			_dict[Key::Rect] = MultiVariantArray{200, 100, 400, 300};
-			
-			_dict[Key::Contents] = String{"Hello, world! This is an Annotation"};
-		}
+		Annotation(const std::weak_ptr<Xref>& parent);
 	};
 }
 
