@@ -24,7 +24,7 @@ namespace PDF_Plus {
 		/**
 		 Ctor with document parent and path to U3D file
 		 */
-		Annotation3D(const std::weak_ptr<Xref>& parent, const std::string& file);
+		Annotation3D(const std::weak_ptr<Xref>& parent, const Rect& rect, const std::string& file);
 		
 	private:
 		std::unique_ptr<_3DStream> _3dd;

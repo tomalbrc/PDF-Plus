@@ -9,12 +9,12 @@
 #include "Annotation.hpp"
 
 namespace PDF_Plus {
-	Annotation::Annotation(const std::weak_ptr<Xref>& parent) : Object{parent}
+	Annotation::Annotation(const std::weak_ptr<Xref>& parent, const Rect& rect, const std::string& text) : Object{parent}
 	{
 		_dict[Key::Type] = "/Annot";
 		_dict[Key::Subtype] = "/Text";
-		_dict[Key::Rect] = MultiVariantArray{200, 100, 400, 300};
-		
-		_dict[Key::Contents] = String{"Hello, world! This is an Annotation"};
+		_dict[Key::Rect] = MultiVariantArray{rect.origin.x, rect.origin.y, rect.size.width, rect.size.height};
+
+		_dict[Key::Contents] = String{text};
 	}
 }

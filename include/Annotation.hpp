@@ -13,6 +13,8 @@
 #include "Array.hpp"
 #include "ObjectRef.hpp"
 
+#include "Types.hpp"
+
 namespace PDF_Plus {
 	/**
 	 Text Annotation Dictionary
@@ -22,7 +24,9 @@ namespace PDF_Plus {
 		/**
 		 Ctor with document xref
 		 */
-		Annotation(const std::weak_ptr<Xref>& parent);
+		Annotation(const std::weak_ptr<Xref>& parent,
+				   const Rect& rect,
+				   const std::string& text = {});
 	};
 }
 
