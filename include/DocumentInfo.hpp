@@ -29,6 +29,7 @@ namespace PDF_Plus {
 			_dict["Author"] = String{"Doc-Author"};
 			_dict["Creator"] = String{"PDF-PLUS Lib"};
 			_dict["Producer"] = String{"PDF-PLUS Lib"};
+			//_dict["ModDate"] = String{"D:19990209153925-08'00'"};
         }
     };
 }
