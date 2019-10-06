@@ -34,12 +34,12 @@ namespace PDF_Plus {
 		
 		out << "xref" << '\n';
 		out << "0 " << _objs.size()+1 << '\n';
-		out << "0000000000 " << std::pow(2,16)-1 << " f" << '\n';
+		out << "0000000000 " << std::pow(2,16)-1 << " f " << '\n';
 		
 		std::size_t off = 0;
 		for (auto& o: _objs)
 		{
-			out << std::setw(10) << std::setfill('0') << off+headerOffset << " 00000 n" << '\n';
+			out << std::setw(10) << std::setfill('0') << off+headerOffset << " 00000 n " << '\n';
 			off += o->size();
 		}
 		
