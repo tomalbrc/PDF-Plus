@@ -79,6 +79,9 @@ void make_table(std::weak_ptr<PDF_Plus::Font>f, PDF_Plus::Page *page)
 
 int main(int argc, const char * argv[])
 {
+	auto t1 = std::chrono::high_resolution_clock::now();
+
+
 	using namespace PDF_Plus;
 	
 	auto doc = std::make_unique<Document>("Example Document");
@@ -135,8 +138,12 @@ int main(int argc, const char * argv[])
 	
 	std::ofstream ofs;
 	ofs.open("/tmp/pdfplus.pdf", std::ios::binary);
-	std::cout << *doc;
+	std::cout << "Wrote to /tmp/pdfplus.pdf." << std::endl;
 	ofs << *doc;
+	
+	auto t2 = std::chrono::high_resolution_clock::now();
+	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1);
+	std::cout << "Generating and writing took " << duration.count() << "ms" << std::endl;
 	
 	return 0;
 }
