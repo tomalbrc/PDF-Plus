@@ -22,6 +22,7 @@ A cmake solution is on the way
 #
 
 ### TODO
+- [ ] PDF Parsing/Reading
 - [ ] Metadata support
 - [ ] Wiki
 - [ ] Documentation
