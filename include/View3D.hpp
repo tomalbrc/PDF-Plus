@@ -18,9 +18,9 @@ namespace PDF_Plus {
 	 3D Render Mode, fixed values for now
 	 // TODO: Enum classes
 	 */
-	class _3DRenderMode : public Object {
+	class RenderMode3D : public Object {
 	public:
-		_3DRenderMode(const std::weak_ptr<Xref>& parent) : Object{parent} {
+		RenderMode3D(const std::weak_ptr<Xref>& parent) : Object{parent} {
 			_dict[Key::Type] = "/3DRenderMode";
 			_dict[Key::Subtype] = "/Solid";
 		}
@@ -30,9 +30,9 @@ namespace PDF_Plus {
 	 3D Lighting Scheme, fixed values for now
 	 // TODO: Enum classes
 	 */
-	class _3DLightingScheme : public Object {
+	class LightingScheme3D : public Object {
 	public:
-		_3DLightingScheme(const std::weak_ptr<Xref>& parent) : Object{parent} {
+		LightingScheme3D(const std::weak_ptr<Xref>& parent) : Object{parent} {
 			_dict[Key::Type] = "/3DLightingScheme";
 			_dict[Key::Subtype] = "/Headlamp";
 		}
@@ -41,12 +41,12 @@ namespace PDF_Plus {
 	/**
 	 
 	 */
-	class _3DView : public Object {
+	class View3D : public Object {
 	public:
-		_3DView(const std::weak_ptr<Xref>& parent, const MultiVariantArray& position, const MultiVariantArray& rotation) : Object{parent} {
+		View3D(const std::weak_ptr<Xref>& parent, const MultiVariantArray& position, const MultiVariantArray& rotation) : Object{parent} {
 			
-			_ls = std::make_shared<_3DLightingScheme>(parent);
-			_rm = std::make_shared<_3DRenderMode>(parent);
+			_ls = std::make_shared<LightingScheme3D>(parent);
+			_rm = std::make_shared<RenderMode3D>(parent);
 			
 			_dict[Key::Type] = "/3DView";
 			_dict["XN"] = String{"Default View"}; // External Name (UI)
@@ -80,8 +80,8 @@ namespace PDF_Plus {
 		}
 		
 	private:
-		std::shared_ptr<_3DLightingScheme> _ls;
-		std::shared_ptr<_3DRenderMode> _rm;
+		std::shared_ptr<LightingScheme3D> _ls;
+		std::shared_ptr<RenderMode3D> _rm;
 	};
 }
 

@@ -14,9 +14,9 @@
 #include "ObjectRef.hpp"
 
 namespace PDF_Plus {
-	class _3DStream : public Stream {
+	class Stream3D : public Stream {
 	public:
-		_3DStream(const std::weak_ptr<Xref>& parent, const std::string& file);
+		Stream3D(const std::weak_ptr<Xref>& parent, const std::string& file);
 	};
 }
 

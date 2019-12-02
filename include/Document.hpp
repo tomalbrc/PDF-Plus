@@ -52,7 +52,7 @@ namespace PDF_Plus {
 		 
 		 */
 		friend std::ostream& operator << (std::ostream &out, const PDF_Plus::Document &d);
-		
+
 		/**
 		 Cross reference table of this Document
 		 */

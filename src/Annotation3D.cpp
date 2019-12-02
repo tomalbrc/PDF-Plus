@@ -17,8 +17,8 @@ namespace PDF_Plus {
 		_dict["Border"] = MultiVariantArray{0, 0, 0};
 		_dict["NM"] = String{"_3D_Annot_"+std::to_string(objectNumber())}; // Name
 		
-		_3dd = std::make_unique<_3DStream>(parent, file);
-		_3dv = std::make_unique<_3DView>(parent, MultiVariantArray{100.f, 100.f, 160.f}, MultiVariantArray{0.9124869f, -0.3779646f, -0.1565577f, 3.8643272f});
+		_3dd = std::make_unique<Stream3D>(parent, file);
+		_3dv = std::make_unique<View3D>(parent, MultiVariantArray{100.f, 100.f, 160.f}, MultiVariantArray{0.9124869f, -0.3779646f, -0.1565577f, 3.8643272f});
 		
 		_dict["3DD"] = ObjectRef{_3dd.get()}; // 
 		_dict["3DV"] = ObjectRef{_3dv.get()}; //

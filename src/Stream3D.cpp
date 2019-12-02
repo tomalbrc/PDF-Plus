@@ -6,11 +6,11 @@
 //  Copyright © 2019 Tom Albrecht. All rights reserved.
 //
 
-#include "3DStream.hpp"
+#include "Stream3D.hpp"
 #include <fstream>
 
 namespace PDF_Plus {
-	_3DStream::_3DStream(const std::weak_ptr<Xref>& parent, const std::string& file) : Stream{parent} {
+	Stream3D::Stream3D(const std::weak_ptr<Xref>& parent, const std::string& file) : Stream{parent} {
 		
 		_dict[Key::Type] = "/3D";
 		_dict[Key::Subtype] = "/U3D";

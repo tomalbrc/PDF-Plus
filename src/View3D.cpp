@@ -6,4 +6,4 @@
 //  Copyright © 2019 Tom Albrecht. All rights reserved.
 //
 
-#include "3DView.hpp"
+#include "View3D.hpp"

@@ -95,8 +95,8 @@ int main(int argc, const char * argv[])
 	});
 	
 	auto image = std::make_shared<Image>(*doc, "parrot-portrait-karen-arnold.png");
-	auto textAnnot = std::make_shared<Annotation>(*doc, Rect{100,600,400,400}, "MyText");
-	auto ann = std::make_shared<Annotation3D>(*doc, Rect{100,100,400,400}, "teapot.u3d");
+	auto textAnnot = std::make_shared<Annotation>(*doc, Rect{{100,600},{400,400}}, "MyText");
+	auto ann = std::make_shared<Annotation3D>(*doc, Rect{{100,100},{400,400}}, "teapot.u3d");
 
 	auto page = std::make_shared<Page>(*doc);
 	page->resources()->addFont(bigfont);
@@ -105,8 +105,8 @@ int main(int argc, const char * argv[])
 	page->addAnnotation(ann);
 	page->contents()->drawText("Page 1", font, Point{10, 10});
 	page->contents()->drawText("Timetable", bigfont, Point{100, 750});
-	page->contents()->drawRect(Rect{100-10, 750-10, 450, 50});
-	page->contents()->drawRect(Rect{100, 100, 300, 300});
+	page->contents()->drawRect(Rect{{100-10, 750-10}, {450, 50}});
+	page->contents()->drawRect(Rect{{100, 100}, {300, 300}});
 	page->contents()->drawImage(image, Point{100, 400}, image->imageInfo().size*.5f);
 	make_table(font, page.get());
 	doc->addPage(page);
@@ -119,7 +119,7 @@ int main(int argc, const char * argv[])
 
 	page2->contents()->drawText("Page 2", font, Point{10, 10});
 	page2->contents()->drawText("Class Diagram", bigfont, Point{100, 755});
-	page2->contents()->drawRect(Rect{100-10, 750-10, 410, 50});
+	page2->contents()->drawRect(Rect{{100-10, 750-10}, {410, 50}});
 	
 	make_class(font, Point{90, 600}, "Array", {"+ set()", "+ get<Get_t>()"}, page2.get());
 	make_class(font, Point{90, 520}, "Dictionary", {"set()", "get<Get_t>()"}, page2.get());
